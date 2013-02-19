@@ -1,0 +1,34 @@
+.description {
+	float: left;
+	}
+
+.list {
+	list-style: none;
+	}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	height: 500px;
+	width: 800px;
+	background: #dedede;
+	padding: 5px;
+	}
+
+.field {
+	position: absolute;
+	z-index: 0;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	background: #fff;
+	background: url('../img/landscape.png')no-repeat;
+}
+
+.ufo {
+	position: absolute;
+	width: 100px;
+	height: 68px;
+	cursor: pointer;
+	}
