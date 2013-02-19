@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+  body {
+    height: 2000px; /* подсказка должна работать независимо от прокрутки */
+  }
+
+  .tooltip {
+    z-index: 100;
+    display: none;
+    position: absolute;
+    min-width: 50px;
+    min-height: 20px;
+    border:solid 1px #E0E0E0;
+    border-radius: 10px;
+    background: #fff;
+  }
+  .tooltip-inside {
+    padding: 10px;
+  }
+
+</style>
+</head>
+<body>
+
+<a href="#" id="link">Ссылка с подсказкой</a>
+<a href="#" id="link2">Еще ссылка</a>
+
+<div id="elem" style="border:1px solid black; position:absolute;width:300px;height:150px;right:10px;bottom:10px">
+  <em>Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
+  Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст</em>
+</div>
+
+<script>
+// должно работать даже если страница имеет прокрутку
+// подсказка должна перекрывать текст под ней
+// у нижнего и правого края окна подсказка должна идти налево/вверх от курсора
+function Tooltip(options) {
+  this.elem = options.elem;
+  this.tooltip_data = options.html;
+
+  var elem_position;
+  var tooltip_position;
+  var tooltip_block;
+  var tooltip_id;
+  var tooltip;
+//индивидуальный блок для каждого тултипа.
+  tooltip_id = 'tooltip-window-' + this.elem.prop('id');
+  tooltip_block = '<div id="' + tooltip_id + '" class="tooltip"><div class="tooltip-inside"></div></div>'
+
+  $('body').append(tooltip_block);
+  tooltip = $('#' + tooltip_id);
+///Вставляем текст во снутренний блок Тултипа
+  tooltip.find('.tooltip-inside').html(this.tooltip_data);
+/// слушаем события мыши
+  this.elem.mouseenter(function(event) {
+    tooltip.show();
+    tooltip_repaint(event);
+  });
+
+  this.elem.mousemove(function(event) {
+    tooltip_repaint(event);
+  });
+
+  this.elem.mouseleave(function() {
+    tooltip.hide();
+  });
+///перерисовываем тултип при движении мыши
+  function tooltip_repaint(event) {
+    var tooltip_width = tooltip.width();
+    var tooltip_height = tooltip.height();
+    var cursor_X = event.pageX;
+    var cursor_Y = event.pageY;
+    var screen_width = $(window).width();
+    var screen_height = $(window).height();
+    //Проверка координат X, Y, XY перед перерисовкой тултипчика
+    var check_X = ((cursor_X + tooltip_width) + 20) > (screen_width);
+    var check_Y = (cursor_Y + tooltip_height + 20) > ($(document).scrollTop() + screen_height);
+    var check_XY = (check_X && check_Y);
+    // перерисовка
+    if(check_XY) {
+      tooltip.offset({
+        top: (cursor_Y - 50),
+        left: ((cursor_X - tooltip_width)) - 10
+      });
+    } else if(check_Y) {
+      tooltip.offset({
+        top: (cursor_Y - 50),
+        left: (cursor_X + 10)
+      });
+    } else if(check_X) {
+      tooltip.offset({
+        top: (cursor_Y + 10),
+        left: ((cursor_X - tooltip_width)) - 10
+      });
+    } else {
+      tooltip.offset({
+        top: (event.pageY + 10),
+        left: (event.pageX + 10)
+      });
+    }
+  }
+}
+
+new Tooltip({
+  elem: $('#elem'),
+  html: "Вот <b>такая</b> подсказка!"
+});
+
+new Tooltip({
+  elem: $('#link'),
+  html: $('#link').html()
+});
+
+new Tooltip({
+  elem: $('#link2'),
+  html: $('#link2').html()
+});
+
+</script>
+
+
+</body>
+</html>
