@@ -2,6 +2,7 @@ $(function() {
 
 	function Ninja() {
 		this.ninja = $('#ninja');
+		this.container = $('.ninja-container');
 		this.animate = false;
 		this.events();
 	}
@@ -11,7 +12,7 @@ $(function() {
 		var current_position;
 
 		$(document).on('keydown', function(event) {
-			//console.log(event.keyCode);
+			console.log(event.keyCode);
 			current_position = self.ninja.offset().left;
 
 			if(event.keyCode === 39) {
@@ -23,7 +24,7 @@ $(function() {
 				self.moving(current_position);
 			}
 			if(event.keyCode === 32) {
-				self.atack();
+				self.atack(current_position);
 			}
 		});
 
@@ -34,9 +35,9 @@ $(function() {
 
 			if(key === 39 || key === 37) {
 				if(key === 39) {
-					stand_side = 'stand_r';
+					stand_side = 'r';
 				} else {
-					stand_side = 'stand_l';
+					stand_side = 'l';
 				}
 				self.stop_moving(stand_side);
 			}
@@ -59,16 +60,26 @@ $(function() {
 				} else {
 					sprite_count = 1;
 				}
-			}, 70);
+			}, 40);
 			this.moving_coordinates = setInterval(function() {
 				if(self.side === 'r') {
-					position += 4;
+					position += 7;
 				} else {
-					position -= 4;
+					position -= 7;
 				}
 				self.ninja.offset({
 					left: current_position + position
 				});
+				if(self.ninja.offset().left <= self.container.offset().left-15) {
+					self.ninja.offset({
+					left: self.container.offset().left-15
+				});
+				}
+				if(self.ninja.offset().left+self.ninja.width()-15 >= self.container.offset().left+self.container.width()) {
+					self.ninja.offset({
+					left: self.container.offset().left+self.container.width()-self.ninja.width()+25
+				});
+				}
 			}, 40);
 		}
 	};
@@ -78,11 +89,12 @@ $(function() {
 		clearInterval(this.moving_coordinates);
 		this.animate = false;
 		this.ninja.css({
-			'background': 'url("img/' + stand_side + '.png")no-repeat'
+			'background': 'url("img/stand_'+stand_side+'.png")no-repeat'
 		});
 	};
 
-	Ninja.prototype.atack = function() {
+	Ninja.prototype.atack = function(current_position) {
+
 		var self = this;
 		var sprite_count = 1;
 
@@ -90,6 +102,7 @@ $(function() {
 			self.side = 'r';
 		}
 		if(!this.atacking) {
+			//self.stop_moving(self.side);
 			var ataken = setInterval(function() {
 				self.atacking = true;
 				if(sprite_count <= 7) {
@@ -102,6 +115,7 @@ $(function() {
 					self.atacking = false;
 				}
 			}, 40);
+
 		}
 	};
 

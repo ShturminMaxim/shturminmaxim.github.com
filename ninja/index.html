@@ -6,12 +6,14 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/ninja.js"></script>
 	<style>
-	.container {
+	.ninja-container {
 		position: relative;
+		overflow: hidden;
 		height: 80px;
 		width: 500px;
 		margin: 100px;
 		border: solid 1px #dedede;
+		padding: 5px;
 	}
 
 	#ninja {
@@ -27,7 +29,7 @@
 </head>
 <body>
 	<p>Ninja prototype. He can go lefside and rightside.Press space to atack. Have fun =)</p>
-	<div class="container">
+	<div class="ninja-container">
 		<div id="ninja"></div>
 		<div class="clear"></div>
 	</div>
