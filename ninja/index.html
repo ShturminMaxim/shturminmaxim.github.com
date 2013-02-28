@@ -14,7 +14,7 @@
 		margin: 10px 0 0 50px;
 		border: solid 1px #dedede;
 		padding: 5px;
-		background: #71bef8;
+		background: url('img/bg.png') top repeat-x, url('img/bg.png') bottom repeat-x, url('img/bg.png') left repeat-y, #71bef8 url('img/bg.png') right repeat-y;
 	}
 
 	#ninja {
@@ -41,8 +41,14 @@
 	</style>
 </head>
 <body>
-	<p>Ninja prototype. He can go lefside and rightside.Press space to atack. Have fun =)</p>
-	<p>27.02- Now ninja can fly! Up-button. This is awesome -)). Have some small bugZ. Still working.</p>
+	<p>Ninja prototype.</p>
+	<ul>
+		<li><p>Ninja can move, jump and atack</p></li>
+		<li><p>Add moving ground</p></li>
+		<li><p>Active buttons: Left, Right, Up, space</p></li>
+	</ul>
+
+	<p></p>
 	<div class="ninja-container">
 		<div id="ninja"></div>
 		<div class="ground"></div>

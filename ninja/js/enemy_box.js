@@ -1,3 +1,0 @@
-function Enemy_box() {
-
-}
