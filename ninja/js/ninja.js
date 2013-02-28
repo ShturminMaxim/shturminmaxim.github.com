@@ -3,6 +3,7 @@ $(function() {
 	function Ninja() {
 		this.ninja = $('#ninja');
 		this.container = $('.ninja-container');
+		this.ground = $('.ground');
 		this.animate = false;
 		this.side = 'r';
 		this.events();
@@ -14,10 +15,12 @@ $(function() {
 			sprite_atacking_animation_l: ['-430px -128px', '-360px -128px', '-290px -128px', '-220px -128px', '-150px -128px', '-80px -128px', '-20px -128px'],
 			sprite_atacking_animation_r: ['-500px -128px', '-570px -128px', '-640px -128px', '-710px -128px', '-780px -128px', '-850px -128px', '-920px -128px'],
 			sprite_jumping_animation_r: ['-500px -191px', '-570px -191px', '-640px -191px', '-710px -191px', '-780px -191px', '-850px -191px'],
-			sprite_jumping_animation_l: ['-430px -191px', '-360px -191px', '-290px -191px', '-220px -191px', '-150px -191px', '-80px -191px']
+			sprite_jumping_animation_l: ['-430px -191px', '-360px -191px', '-290px -191px', '-220px -191px', '-150px -191px', '-80px -191px'],
+			sprite_jump_atacking_animation_r : ['-500px -254px', '-570px -254px', '-640px -254px', '-710px -254px'],
+			sprite_jump_atacking_animation_l : ['-430px -254px', '-360px -254px', '-290px -254px', '-220px -254px']
 		};
 		this.speed = 0;
-		this.power = 0.5;
+		this.power = 0.2;
 		this.friction = 0.5;
 		console.log(this['sprite_moving_animation_' + 'r']);
 	}
@@ -60,6 +63,7 @@ $(function() {
 
 	Ninja.prototype.moving = function(current_position) {
 		var self = this;
+		var ground_width = this.ground.width();
 
 		if (!this.animate) {
 			this.animate = true;
@@ -78,7 +82,19 @@ $(function() {
 				self.ninja.offset({
 					left: self.ninja.offset().left + self.speed
 				});
-
+				self.ground.offset({
+						left: self.ground.offset().left - self.speed
+					});
+				if(self.ground.offset().left <= -ground_width+self.container.width()+120) {
+					self.ground.offset({
+						left: -ground_width+self.container.width()+120
+					});
+				}
+				if(self.ground.offset().left >= 0) {
+					self.ground.offset({
+						left: 0
+					});
+				}
 				if (self.ninja.offset().left <= self.container.offset().left - 5) {
 					self.ninja.offset({
 						left: self.container.offset().left - 5
@@ -149,8 +165,7 @@ $(function() {
 		var self = this;
 		var jump_top = 150;
 		var gravitation = 0.85;
-		var jump_speed = 5;
-		var jump_power = 4;
+		var jump_speed = 4;
 		var jump_height = current_y_position - jump_top;
 
 		if (!this.jumping) {
@@ -186,7 +201,13 @@ $(function() {
 
 	Ninja.prototype.atack = function() {
 		var self = this;
-		var animation_sprites = this.sprite_positions['sprite_atacking_animation_' + this.side];
+		var animation_sprites;
+
+		if(this.jumping) {
+			animation_sprites = this.sprite_positions['sprite_jump_atacking_animation_'+this.side];
+		} else {
+			animation_sprites = this.sprite_positions['sprite_atacking_animation_' + this.side];
+		}
 		var i = 0;
 
 		if (!this.atacking) {

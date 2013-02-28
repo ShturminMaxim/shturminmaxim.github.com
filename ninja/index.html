@@ -14,16 +14,26 @@
 		margin: 10px 0 0 50px;
 		border: solid 1px #dedede;
 		padding: 5px;
-		background: #71bef8 url('img/grassbg.jpg') bottom repeat-x;
+		background: #71bef8;
 	}
 
 	#ninja {
 		position: absolute;
+		z-index: 2;
 		bottom: 45px;
 		height: 65px;
 		width: 70px;
 		background: url('img/ninja_new_strites.png') no-repeat;
 		background-position: -500px -62px;
+	}
+	.ground {
+		position: absolute;
+		z-index: 1;
+		bottom: 0;
+		left: -100px;
+		height: 50px;
+		width: 2050px;
+		background: url('img/grassbg.jpg') repeat-x;
 	}
 	.clear {
 		clear: both;
@@ -35,7 +45,7 @@
 	<p>27.02- Now ninja can fly! Up-button. This is awesome -)). Have some small bugZ. Still working.</p>
 	<div class="ninja-container">
 		<div id="ninja"></div>
-		<div class="clear"></div>
+		<div class="ground"></div>
 	</div>
 </body>
 </html>
