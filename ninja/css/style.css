@@ -9,7 +9,7 @@
 		margin: 10px 0 0 50px;
 		border: solid 1px #dedede;
 		padding: 5px;
-		background: url('img/bg.png') top repeat-x, url('img/bg.png') bottom repeat-x, url('img/bg.png') left repeat-y, #71bef8 url('img/bg.png') right repeat-y;
+		background: url('../img/bg.png') top repeat-x, url('../img/bg.png') bottom repeat-x, url('../img/bg.png') left repeat-y, #71bef8 url('../img/bg.png') right repeat-y;
 	}
 
 	#ninja {
@@ -18,7 +18,7 @@
 		bottom: 45px;
 		height: 65px;
 		width: 70px;
-		background: url('img/ninja_new_strites.png') no-repeat;
+		background: url('../img/ninja_new_strites.png') no-repeat;
 		background-position: -500px -62px;
 	}
 	.enemy-object {
@@ -27,7 +27,7 @@
 
 		height: 65px;
 		width: 70px;
-		background: url('img/enemy_box.png') no-repeat;
+		background: url('../img/enemy_box.png') no-repeat;
 	}
 	.ground {
 		position: absolute;
@@ -35,7 +35,7 @@
 		left: -100px;
 		height: 50px;
 		width: 2050px;
-		background: url('img/grassbg.jpg') repeat-x;
+		background: url('../img/grassbg.jpg') repeat-x;
 	}
 	.counter {
 		width: 100px;
