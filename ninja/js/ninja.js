@@ -1,3 +1,5 @@
+"use strict"
+/*global document $*/
 $(function() {
 
 	function Ninja() {
@@ -16,18 +18,17 @@ $(function() {
 			sprite_atacking_animation_r: ['-500px -128px', '-570px -128px', '-640px -128px', '-710px -128px', '-780px -128px', '-850px -128px', '-920px -128px'],
 			sprite_jumping_animation_r: ['-500px -191px', '-570px -191px', '-640px -191px', '-710px -191px', '-780px -191px', '-850px -191px'],
 			sprite_jumping_animation_l: ['-430px -191px', '-360px -191px', '-290px -191px', '-220px -191px', '-150px -191px', '-80px -191px'],
-			sprite_jump_atacking_animation_r : ['-500px -254px', '-570px -254px', '-640px -254px', '-710px -254px'],
-			sprite_jump_atacking_animation_l : ['-430px -254px', '-360px -254px', '-290px -254px', '-220px -254px']
+			sprite_jump_atacking_animation_r: ['-500px -254px', '-570px -254px', '-640px -254px', '-710px -254px'],
+			sprite_jump_atacking_animation_l: ['-430px -254px', '-360px -254px', '-290px -254px', '-220px -254px']
 		};
 		this.speed = 0;
 		this.power = 0.2;
 		this.friction = 0.5;
-		console.log(this['sprite_moving_animation_' + 'r']);
 	}
 
 	Ninja.prototype.events = function() {
 		var self = this;
-		var current_position;
+		var current_position, current_y_position;
 
 		$(document).on('keydown', function(event) {
 			//console.log(event.keyCode);
@@ -82,15 +83,16 @@ $(function() {
 				self.ninja.offset({
 					left: self.ninja.offset().left + self.speed
 				});
+				// TODO take ground move and ground object to separate module
 				self.ground.offset({
-						left: self.ground.offset().left - self.speed
-					});
-				if(self.ground.offset().left <= -ground_width+self.container.width()+120) {
+					left: self.ground.offset().left - self.speed
+				});
+				if (self.ground.offset().left <= -ground_width + self.container.width() + 120) {
 					self.ground.offset({
-						left: -ground_width+self.container.width()+120
+						left: -ground_width + self.container.width() + 120
 					});
 				}
-				if(self.ground.offset().left >= 0) {
+				if (self.ground.offset().left >= 0) {
 					self.ground.offset({
 						left: 0
 					});
@@ -202,15 +204,20 @@ $(function() {
 	Ninja.prototype.atack = function() {
 		var self = this;
 		var animation_sprites;
-
-		if(this.jumping) {
-			animation_sprites = this.sprite_positions['sprite_jump_atacking_animation_'+this.side];
+		this.ninja_center_point = {
+			x_position : self.ninja.offset().left - self.container.offset().left + this.ninja.width()/2,
+			y_position : this.ninja.offset().top - this.ninja.height()/2
+		};
+		console.log(self.ninja.offset().left - self.container.offset().left);
+		if (this.jumping) {
+			animation_sprites = this.sprite_positions['sprite_jump_atacking_animation_' + this.side];
 		} else {
 			animation_sprites = this.sprite_positions['sprite_atacking_animation_' + this.side];
 		}
 		var i = 0;
 
 		if (!this.atacking) {
+			window.app.mediator.publish('atack', [self.side, self.ninja.offset().left + self.ninja.width(), self.ninja_center_point]);
 			//self.stop_moving(self.side);
 			var ataken = setInterval(function() {
 				self.atacking = true;
