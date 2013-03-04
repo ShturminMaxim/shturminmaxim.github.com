@@ -4,19 +4,28 @@
 	<meta charset="UTF-8">
 	<title>Menu-animation</title>
 	<link rel="stylesheet" href="css/style.css">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/raphael-min.js"></script>
+	<script src="js/g.raphael.js"></script>
+	<script src="js/g.pie.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/g.bar.js" type="text/javascript" charset="utf-8"></script>
+
 	<script src="js/menu_nav_animation.js"></script>
+	<script src="js/content_div.js"></script>
 </head>
 <body>
 	<div class="menu-container">
-		<ul class="menu">
-			<li class="first-item closed"><p><a>Нажми меню</a></p></li>
-			<li class="menu-item"><div class="left-border"></div><p><a>Первая кнопка</a></p><div class="right-border"></div></li>
-			<li class="menu-item"><div class="left-border"></div><p><a>Вторая</a></p><div class="right-border"></div></li>
-			<li class="menu-item"><div class="left-border"></div><p><a>Третья кнопка длинная</a></p><div class="right-border"></div></li>
-		</ul>
+		<div class="menu">
+			<div class="first-item closed"><p><a>Главное меню</a></p></div>
+			<div class="menu-item"><div class="left-border"></div><p><a href="#1">Тест стат-1</a></p><div class="right-border"></div></div>
+			<div class="menu-item"><div class="left-border"></div><p><a href="#2">Тест стат-2</a></p><div class="right-border"></div></div>
+			<div class="menu-item"><div class="left-border"></div><p><a href="#3">Тест стат-3</a></p><div class="right-border"></div></div>
+		</div>
 	</div>
 	<div class="content-container">
+		<div class="graph" id="holder-1"></div>
+		<div class="graph" id="holder-2"></div>
+		<div class="graph" id="holder-3"></div>
 		<div class="rec"></div>
 	</div>
 </body>

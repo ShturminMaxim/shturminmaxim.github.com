@@ -13,8 +13,8 @@ body {
 		color: #FFFFFF;
 	}
 	.menu {
-		list-style: none;
 		position: relative;
+		z-index: 0;
 		margin-top: 0;
 		overflow: hidden;
 		cursor: pointer;
@@ -27,7 +27,7 @@ body {
 		vertical-align: top;
 		height: 30px;
 		min-width: 180px;
-		margin: 0 0 0 -43px;
+		margin-left: -5px;
 		background: url('../img/first-button.png') no-repeat;
 	}
 	.first-item p a {
@@ -47,12 +47,14 @@ body {
 		display: inline-block;
 		vertical-align: top;
 		height: 30px;
-		padding-right: 22px;
+		padding-right: 15px;
 		background: url('../img/menu-bg.png') 0 -32px repeat-x;
 	}
 	.menu-item p a {
 		display: inline-block;
 		margin-top: 5px;
+		text-decoration: none;
+		color: #FFFFFF;
 	}
 	.left-border {
 		height: 30px;
@@ -70,9 +72,18 @@ body {
 	}
 
 	.content-container {
+		position: relative;
+		overflow: hidden;
 		margin: 0 auto;
 		width: 60%;
 		height: 500px;
-		background: #606060;
+		background: #F8F8F8;
 		border-radius: 10px;
+	}
+
+	.graph {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		margin-left: -800px;
 	}
