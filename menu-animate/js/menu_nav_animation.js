@@ -2,7 +2,6 @@
 // This is unoptimized test
 // TODO set negative margin relative to max menu-item width.
 // TODO optimize functions
-// TODO add function for animate holders
 
 /*global $, console, alert */
 $(function() {
@@ -18,37 +17,29 @@ $(function() {
 	})();
 
 	(function click_event() {
+		var current_slide = current_slide || 0;
+
+		function show_slide(slide_number) {
+				current_slide = slide_number;
+				$('#holder-'+slide_number).addClass('visible-graph');
+				$('#holder-'+slide_number).stop().animate({
+					'margin-left': '0'
+				}, 1000);
+			}
+		function hide_slide(current_slide) {
+			$('#holder-'+current_slide).removeClass('visible-graph');
+			$('#holder-'+current_slide).stop().animate({
+					'margin-left': '-800'
+				}, 1500);
+		}
 
 		$('.menu-item').mousedown(function(event){
 			event.preventDefault();
-
-			if($('.visible-graph')) {
-				$('.visible-graph').animate({
-					'margin-left': '-800'
-				}, 1500);
-				$('.visible-graph').removeClass('visible-graph');
+			var number_in_hash = $(event.target).parent().find('a').attr('href').replace('#','');
+			if(current_slide !== number_in_hash) {
+				hide_slide(current_slide);
+				show_slide(number_in_hash);
 			}
-
-			var hash = $(event.target).parent().find('a').attr('href');
-			if(hash ==='#1') {
-				$('#holder-1').addClass('visible-graph');
-				$('#holder-1').animate({
-					'margin-left': '0'
-				}, 1000);
-			}
-			if(hash ==='#2') {
-				$('#holder-2').addClass('visible-graph');
-				$('#holder-2').animate({
-					'margin-left': '0'
-				}, 1000);
-			}
-			if(hash ==='#3') {
-				$('#holder-3').addClass('visible-graph');
-				$('#holder-3').animate({
-					'margin-left': '0'
-				}, 1000);
-			}
-
 		});
 
 		$('.first-item').click(function() {
@@ -58,12 +49,8 @@ $(function() {
 				$('.menu-item').animate({
 					'margin-left': '-260'
 				}, 1500);
-				if($('.visible-graph')) {
-				$('.visible-graph').animate({
-					'margin-left': '-800'
-				}, 1500);
-				$('.visible-graph').removeClass('visible-graph');
-				}
+				hide_slide(current_slide);
+				current_slide = 0;
 			} else {
 				$('.menu-item').animate({
 					'margin-left': '-30'
