@@ -10,8 +10,8 @@
 }
 
 #slider-wrapper {
-	width:300px;
-	height:160px;
+	width:320px;
+	height:260px;
 
 	float:left;
 	position:relative;	/* On older OS versions "position" and "z-index" must be defined, */
@@ -27,7 +27,7 @@
 }
 
 #scroller {
-	width:2100px;
+	width:1600px;
 	height:100%;
 	float:left;
 	padding:0;
@@ -50,7 +50,7 @@
 	-o-box-sizing:border-box;
 	box-sizing:border-box;
 	display:block; float:left;
-	width:300px; height:160px;
+	width:320px; height:160px;
 	text-align:center;
 	font-family:georgia;
 	font-size:18px;
