@@ -8,6 +8,27 @@
 	height: 47px;
 	background: url("../img/footer-menu-background.png") repeat-x;
 }
+body{
+font-family:Helvetica, Arial, Verdana, sans-serif;
+padding:5px;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+#description {
+	width:320px;
+}
+
+#wrapper {
+	position:absolute; z-index:1;
+	top:45px; bottom:48px; left:0;
+	width:100%;
+	background:#aaa;
+	overflow:auto;
+	padding:0;
+}
+
 
 #slider-wrapper {
 	width:320px;

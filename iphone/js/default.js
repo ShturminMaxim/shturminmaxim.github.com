@@ -2,9 +2,7 @@ var myScroll;
 var mySlide;
 
 function loaded() {
-	//myScroll = new iScroll('wrapper');
-
-	mySlide = new iScroll('slider-wrapper', {
+	setTimeout(function(){mySlide = new iScroll('slider-wrapper', {
 		snap: true,
 		momentum: false,
 		hScrollbar: false,
@@ -12,7 +10,12 @@ function loaded() {
 			document.querySelector('#indicator > li.active').className = '';
 			document.querySelector('#indicator > li:nth-child(' + (this.currPageX+1) + ')').className = 'active';
 		}
-	});
+	});}, 0);
+	setTimeout(function(){scroll2 = new iScroll('wrapper');}, 0);
+
+	/*mySlide = new iScroll();
+
+	myScroll = new iScroll('description');*/
 }
 
 document.addEventListener('DOMContentLoaded', loaded, false);
