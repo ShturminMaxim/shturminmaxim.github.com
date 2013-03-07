@@ -5,8 +5,7 @@
 
 
 .footer {
-	height: 47px;
-	background: url("../img/footer-menu-background.png") repeat-x;
+	height: 145px;
 }
 body{
 font-family:Helvetica, Arial, Verdana, sans-serif;
@@ -16,19 +15,62 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+
+.top-menu-button {
+	display: inline-block;
+	height: 37px;
+	width: 53px;
+	background: url("../img/menu-button.png") no-repeat;
+}
+.top-logo {
+	display: inline-block;
+	height: 40px;
+	width: 225px;
+	background: url("../img/logo.png") no-repeat;
+}
+.top-search {
+	display: inline-block;
+	height: 37px;
+	width: 52px;
+	background: url("../img/search-button.png") no-repeat;
+}
+
+.social-buttons {
+	display: inline-block;
+	height: 31px;
+	width: 152px;
+	background: url("../img/social-buttons.png") no-repeat;
+}
+.bar-1 {
+	height: 34px;
+	background: url("../img/top-menu-background.png") repeat-x;
+}
+.bar-2 {
+	height: 66px;
+}
+
+.banner-l {
+	display: inline-block;
+	height: 56px;
+	width: 178px;
+	background: url("../img/banner-l.png") no-repeat;
+}
+
+.banner-r {
+	display: inline-block;
+	height: 56px;
+	width: 178px;
+	background: url("../img/banner-r.png") no-repeat;
+}
+
+.bar-3 {
+	height: 47px;
+	background: url("../img/footer-menu-background.png") repeat-x;
+}
+
 #description {
 	width:320px;
 }
-
-#wrapper {
-	position:absolute; z-index:1;
-	top:45px; bottom:48px; left:0;
-	width:100%;
-	background:#aaa;
-	overflow:auto;
-	padding:0;
-}
-
 
 #slider-wrapper {
 	width:320px;
@@ -79,8 +121,8 @@ ul {
 }
 
 #nav {
-	width:300px;
-	float:left;
+	display: inline-block;
+	float:right;
 }
 
 #prev, #next {
