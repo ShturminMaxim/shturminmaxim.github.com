@@ -1,0 +1,32 @@
+body{
+-webkit-text-size-adjust:none;
+font-family:Helvetica, Arial, Verdana, sans-serif;
+}
+
+img{
+      max-width:100%;
+      height:auto;
+}
+
+div{
+  clear:both!important;
+  display:block!important;
+  *width:100%!important;
+  float:none!important;
+  margin:0;
+  padding:0!important;
+}
+
+.header-menu {
+	height: 47px;
+	background: url("../img/top-menu-background.png") repeat-x;
+}
+
+.slider {
+	width: 320px;
+}
+
+.footer {
+	height: 47px;
+	background: url("../img/footer-menu-background.png") repeat-x;
+}
