@@ -2,9 +2,9 @@ var myScroll;
 var mySlide;
 
 function loaded() {
-	myScroll = new iScroll('wrapper');
+	//myScroll = new iScroll('wrapper');
 
-	mySlide = new iScroll('slider', {
+	mySlide = new iScroll('slider-wrapper', {
 		snap: true,
 		momentum: false,
 		hScrollbar: false,
