@@ -54,15 +54,15 @@ ul {
 
 .banner-l {
 	display: inline-block;
-	height: 56px;
-	width: 178px;
+	height: 48px;
+	width: 150px;
 	background: url("../img/banner-l.png") no-repeat;
 }
 
 .banner-r {
 	display: inline-block;
-	height: 56px;
-	width: 178px;
+	height: 48px;
+	width: 150px;
 	background: url("../img/banner-r.png") no-repeat;
 }
 
