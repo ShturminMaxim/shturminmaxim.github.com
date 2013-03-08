@@ -22,14 +22,11 @@ ul {
 	padding: 0;
 }
 #wrapper {
-	padding: 0;
-	position: absolute;
-	top: 45px;
-	bottom: -127px;
+	padding: 0 0 127px 0;
 }
 
 #wrapper>ul {
-	margin-bottom: 127px;
+
 }
 
 .top-menu-button {
