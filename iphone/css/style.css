@@ -19,19 +19,19 @@ ul {
 .top-menu-button {
 	display: inline-block;
 	height: 37px;
-	width: 53px;
+	width: 50px;
 	background: url("../img/menu-button.png") no-repeat;
 }
 .top-logo {
 	display: inline-block;
 	height: 40px;
-	width: 225px;
+	width: 210px;
 	background: url("../img/logo.png") no-repeat;
 }
 .top-search {
 	display: inline-block;
 	height: 37px;
-	width: 52px;
+	width: 50px;
 	background: url("../img/search-button.png") no-repeat;
 }
 
