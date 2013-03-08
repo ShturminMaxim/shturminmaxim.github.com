@@ -28,6 +28,10 @@ ul {
 	bottom: -127px;
 }
 
+#wrapper>ul {
+	margin-bottom: 127px;
+}
+
 .top-menu-button {
 	display: inline-block;
 	height: 37px;
