@@ -25,7 +25,7 @@ ul {
 	padding: 0;
 	position: absolute;
 	top: 45px;
-	bottom: 127px;
+	bottom: -127px;
 }
 
 .top-menu-button {
