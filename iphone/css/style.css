@@ -5,7 +5,7 @@
 
 
 .footer {
-	height: 145px;
+	height: 127px;
 }
 body{
 font-family:Helvetica, Arial, Verdana, sans-serif;
@@ -42,6 +42,7 @@ ul {
 	display: inline-block;
 	height: 31px;
 	width: 152px;
+	margin: 1px;
 	background: url("../img/social-buttons.png") no-repeat;
 }
 .bar-1 {
@@ -49,19 +50,22 @@ ul {
 	background: url("../img/top-menu-background.png") repeat-x;
 }
 .bar-2 {
-	height: 66px;
+	height: 47px;
+	background: #ffffff;
 }
 
 .banner-l {
 	display: inline-block;
-	height: 48px;
+	float: left;
+	height: 47px;
 	width: 150px;
 	background: url("../img/banner-l.png") no-repeat;
 }
 
 .banner-r {
 	display: inline-block;
-	height: 48px;
+	float: right;
+	height: 47px;
 	width: 150px;
 	background: url("../img/banner-r.png") no-repeat;
 }
