@@ -1,5 +1,5 @@
 .header-menu {
-	height: 47px;
+	height: 45px;
 	background: url("../img/top-menu-background.png") repeat-x;
 }
 
@@ -11,12 +11,19 @@ body{
 font-family:Helvetica, Arial, Verdana, sans-serif;
 padding:5px;
 }
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
 ul {
 	margin: 0;
 	padding: 0;
 }
 #wrapper {
 	padding: 0;
+	margin-bottom: -127px;
 }
 
 .top-menu-button {
