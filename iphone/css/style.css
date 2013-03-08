@@ -15,6 +15,9 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+#wrapper {
+	padding: 0;
+}
 
 .top-menu-button {
 	display: inline-block;
