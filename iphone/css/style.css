@@ -23,7 +23,9 @@ ul {
 }
 #wrapper {
 	padding: 0;
-	margin-bottom: -127px;
+	position: absolute;
+	top: 45px;
+	bottom: 127px;
 }
 
 .top-menu-button {
