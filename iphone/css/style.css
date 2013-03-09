@@ -11,6 +11,7 @@ body{
 font-family:Helvetica, Arial, Verdana, sans-serif;
 }
 body,ul,li,p  {
+	list-style: none;
         padding:0;
         margin:0;
         border:0;
@@ -19,7 +20,9 @@ body,ul,li,p  {
 #wrapper {
 	position:absolute;
     z-index:1;
-    top:45px; bottom:127px; left:0;
+    top:45px;
+    bottom:127px;
+    left:0;
     width:100%;
     background:#aaa;
     overflow:auto;
