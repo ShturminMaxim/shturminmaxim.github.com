@@ -6,6 +6,8 @@
 
 .footer {
 	height: 127px;
+    position: absolute;
+    bottom: 0;
 }
 body{
 font-family:Helvetica, Arial, Verdana, sans-serif;
@@ -27,6 +29,7 @@ body,ul,li,p  {
     background:#aaa;
 	padding: 0;
 }
+
 
 .top-menu-button {
 	display: inline-block;
