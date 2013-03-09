@@ -25,9 +25,17 @@ body,ul,li,p  {
     left:0;
     width:100%;
     background:#aaa;
-    overflow:scroll;
 	padding: 0;
 }
+
+#wrapper ul {
+	overflow:scroll;
+}
+
+#wrapper ul li {
+	height: 100%;
+}
+
 
 .top-menu-button {
 	display: inline-block;
