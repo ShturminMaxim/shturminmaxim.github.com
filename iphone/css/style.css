@@ -9,30 +9,21 @@
 }
 body{
 font-family:Helvetica, Arial, Verdana, sans-serif;
-padding:5px;
 }
-
-p {
-	margin: 0;
-	padding: 0;
-}
-
-ul {
-	margin: 0;
-	padding: 0;
-}
-#page1 {
-	position: relative;
-    height: 480px;
-    width: 320px;
-}
+body,ul,li,p  {
+        padding:0;
+        margin:0;
+        border:0;
+    }
 
 #wrapper {
+	position:absolute;
+    z-index:1;
+    top:45px; bottom:127px; left:0;
+    width:100%;
+    background:#aaa;
+    overflow:auto;
 	padding: 0;
-}
-
-#wrapper>ul {
-
 }
 
 .top-menu-button {
