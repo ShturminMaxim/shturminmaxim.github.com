@@ -1,11 +1,15 @@
 .header-menu {
+	position: absolute;
+    top: 0;
 	height: 45px;
+	width: 100%;
 	background: url("../img/top-menu-background.png") repeat-x;
 }
 
 
 .footer {
 	height: 127px;
+	width: 100%;
     position: absolute;
     bottom: 0;
 }
