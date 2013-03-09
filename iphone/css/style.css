@@ -21,11 +21,14 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+#page1 {
+	position: relative;
+    height: 480px;
+    width: 320px;
+}
+
 #wrapper {
-	position: absolute;
-	top: 45px;
 	padding: 0;
-	bottom:127px;
 }
 
 #wrapper>ul {
