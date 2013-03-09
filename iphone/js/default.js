@@ -20,7 +20,9 @@ function loaded() {
 
 document.addEventListener('DOMContentLoaded', loaded, false);
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
+window.onorientationchange = function(event) {
+	event.preventDefault();
+};
 /*window.onload = function() {
 	setTimeout(function() {
 	window.scrollTo(0, 1);
