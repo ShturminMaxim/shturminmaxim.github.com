@@ -1,3 +1,13 @@
+body{
+font-family:Helvetica, Arial, Verdana, sans-serif;
+}
+body,ul,li,p  {
+	list-style: none;
+        padding:0;
+        margin:0;
+        border:0;
+    }
+
 .header-menu {
 	position: absolute;
     top: 0;
@@ -13,15 +23,6 @@
     position: absolute;
     bottom: 0;
 }
-body{
-font-family:Helvetica, Arial, Verdana, sans-serif;
-}
-body,ul,li,p  {
-	list-style: none;
-        padding:0;
-        margin:0;
-        border:0;
-    }
 
 #wrapper {
 	position:absolute;
@@ -190,4 +191,41 @@ body,ul,li,p  {
 
 #indicator > li:last-child {
 	margin:0;
+}
+
+.bar-3 a {
+	display: inline-block;
+	font-family: Helvetica;
+	font-size: 8px;
+	color: #ffffff;
+	margin-top: 30px;
+}
+.res-themes {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	width: 25%;
+	height: 47px;
+	background: url("../img/book-icon.png") 50% 0 no-repeat;
+}
+.res-box {
+	display: inline-block;
+	text-align: center;
+	width: 25%;
+	height: 47px;
+	background: url("../img/box-icon.png") 50% 0 no-repeat;
+}
+.shop-list {
+	display: inline-block;
+	text-align: center;
+	width: 25%;
+	height: 47px;
+	background: url("../img/list-icon.png") 50% 0 no-repeat;
+}
+.meal-maker {
+	display: inline-block;
+	text-align: center;
+	width: 25%;
+	height: 47px;
+	background: url("../img/meal-icon.png") 50% 0 no-repeat;
 }
