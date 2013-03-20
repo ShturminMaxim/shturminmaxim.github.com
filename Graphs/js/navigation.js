@@ -14,7 +14,10 @@ define(['./mediator'], function(mediator) {
 
 	menu_container.delegate(menu_container, 'click', function(event) {
 		var target = $(event.target);
-		mediator.publish('click', target.text());
+
+		if(target.is('li')) {
+			mediator.publish('click', target.text());
+		}
 	});
 
 	return function() {

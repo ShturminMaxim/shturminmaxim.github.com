@@ -100,8 +100,9 @@ define(['./mediator'], function(mediator) {
 				chart: {
 					renderTo: 'container',
 					type: 'line',
-					marginRight: 450,
+					marginRight: 0,
 					marginBottom: 25
+
 				},
 				title: {
 					text: data,
@@ -130,6 +131,7 @@ define(['./mediator'], function(mediator) {
 					}
 				},
 				legend: {
+					backgroundColor: '#FCFFC5',
 					shadow: true,
 					layout: 'vertical',
 					align: 'right',
