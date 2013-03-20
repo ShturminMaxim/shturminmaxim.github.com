@@ -141,7 +141,15 @@ define(['./mediator'], function(mediator) {
 				series: Graph.example_recieved_graph_data
 			});
 
-			var null_position = $('.highcharts-legend').offset().left;
+			var tranform_attr = $('.highcharts-legend').attr('transform');
+			var X_pos_from_transform_attr = /\d+/.exec(tranform_attr);
+			// console.log(a, b);
+
+			var null_position = X_pos_from_transform_attr[0];
+			console.log(null_position);
+
+			$('#show-legend-button').hide();
+			$('.buttons').show();
 
 			$('#hide-legend-button').on('click', function hide_legend() {
 				var x = $('.highcharts-legend').offset().left;
@@ -151,6 +159,8 @@ define(['./mediator'], function(mediator) {
 					if (x >= window.innerWidth) {
 						clearInterval(hiding);
 						console.log('stop');
+						$('#hide-legend-button').hide();
+						$('#show-legend-button').show();
 					}
 				}, 5);
 			});
@@ -160,9 +170,15 @@ define(['./mediator'], function(mediator) {
 				var showing = setInterval(function() {
 					$('.highcharts-legend').attr('transform', "translate(" + x + ",55)");
 					x -= 4;
+					$('.highcharts-legend').offset({
+						left: x
+					});
+					console.log(null_position);
 					if (x <= null_position) {
 						clearInterval(showing);
 						console.log('stop');
+						$('#hide-legend-button').show();
+						$('#show-legend-button').hide();
 					}
 				}, 5);
 			});
