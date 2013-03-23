@@ -204,6 +204,7 @@ define(['./mediator'], function(mediator) {
 
 			var tranform_attr = $('.highcharts-legend').attr('transform');
 			var X_pos_from_transform_attr = /\d+/.exec(tranform_attr);
+			var hiding_timer;
 			// console.log(a, b);
 
 			var null_position = X_pos_from_transform_attr[0];
@@ -212,7 +213,7 @@ define(['./mediator'], function(mediator) {
 			$('#show-legend-button').hide();
 			$('.buttons').show();
 
-			$('#hide-legend-button').on('click', function hide_legend() {
+			function hide_legend() {
 				var x = $('.highcharts-legend').offset().left;
 				var hiding = setInterval(function() {
 					$('.highcharts-legend').attr('transform', "translate(" + x + ",55)");
@@ -222,9 +223,12 @@ define(['./mediator'], function(mediator) {
 						console.log('stop');
 						$('#hide-legend-button').hide();
 						$('#show-legend-button').show();
+						hiding_timer = false;
 					}
 				}, 5);
-			});
+			}
+
+			$('#hide-legend-button').on('click', hide_legend);
 
 			$('#show-legend-button').on('click', function show_legend() {
 				var x = $('.highcharts-legend').offset().left;
@@ -242,6 +246,13 @@ define(['./mediator'], function(mediator) {
 						$('#show-legend-button').hide();
 					}
 				}, 5);
+			});
+
+			$('.highcharts-legend-item').on('click', function() {
+				if(!hiding_timer) {
+					hiding_timer = true;
+					setTimeout(hide_legend,3000);
+				}
 			});
 
 			console.log();
