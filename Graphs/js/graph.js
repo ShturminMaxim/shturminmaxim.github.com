@@ -189,7 +189,7 @@ define(['./mediator'], function(mediator) {
 						'z-index': '1000'
 					},
 					itemHiddenStyle: {
-						color: '#333'
+						color: '#E00000'
 					}
 				},
 				plotOptions: {
