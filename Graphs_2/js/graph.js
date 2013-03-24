@@ -148,7 +148,7 @@ define(['./mediator'], function(mediator) {
 				chart: {
 					renderTo: 'container',
 					type: 'line',
-					marginRight: 10,
+					marginRight: 50,
 					marginBottom: 25
 
 				},
@@ -206,59 +206,7 @@ define(['./mediator'], function(mediator) {
 				series: Graph.example_recieved_graph_data
 			});
 
-			var tranform_attr = $('.highcharts-legend').attr('transform');
-			var X_pos_from_transform_attr = /\d+/.exec(tranform_attr);
-			var hiding_timer;
-			// console.log(a, b);
-
-			var null_position = X_pos_from_transform_attr[0];
-			console.log(null_position);
-
-			$('.highcharts-legend').hide();
-			$('#show-legend-button').hide();
-			$('.buttons').show();
-
-			function hide_legend() {
-				var x = $('.highcharts-legend').offset().left;
-				var hiding = setInterval(function() {
-					$('.highcharts-legend').attr('transform', "translate(" + x + ",55)");
-					x += 4;
-					if (x >= window.innerWidth) {
-						clearInterval(hiding);
-						console.log('stop');
-						$('#hide-legend-button').hide();
-						$('#show-legend-button').show();
-						/*hiding_timer = false;*/
-					}
-				}, 5);
-			}
-
-			$('#hide-legend-button').on('click', hide_legend);
-
-			$('#show-legend-button').on('click', function show_legend() {
-				var x = $('.highcharts-legend').offset().left;
-				var showing = setInterval(function() {
-					$('.highcharts-legend').attr('transform', "translate(" + x + ",55)");
-					x -= 4;
-					$('.highcharts-legend').offset({
-						left: x
-					});
-					console.log(null_position);
-					if (x <= null_position) {
-						clearInterval(showing);
-						console.log('stop');
-						$('#hide-legend-button').show();
-						$('#show-legend-button').hide();
-					}
-				}, 5);
-			});
-
-			/*$('.highcharts-legend-item').on('click', function() {
-				if(!hiding_timer) {
-					hiding_timer = true;
-					setTimeout(hide_legend,3000);
-				}
-			});*/
+			$('.new-legend>div').text('');
 			for (var i = 0; i < Graph.example_recieved_graph_data.length; i++) {
 				if (i < (Graph.example_recieved_graph_data.length / 3)) {
 					//console.log("1-" + i);
@@ -276,6 +224,44 @@ define(['./mediator'], function(mediator) {
 				}
 				//console.log(Graph.example_recieved_graph_data[i].name);
 			}
+
+			var tranform_attr = $('.highcharts-legend').attr('transform');
+			var X_pos_from_transform_attr = /\d+/.exec(tranform_attr);
+			var hiding_timer;
+			// console.log(a, b);
+
+			var null_position = X_pos_from_transform_attr[0];
+			console.log(null_position);
+
+			$('.highcharts-legend').hide();
+			$('#toggle-legend').text('Скрыть легенду');
+			$('.buttons').show();
+
+			function hide_toggle() {
+				$('.new-legend').stop();
+				$('.new-legend').animate({
+					height: 'toggle'
+				}, 1000);
+				if($('#toggle-legend').text() === 'Показать легенду') {
+					$('#toggle-legend').text('Скрыть легенду');
+				} else {
+					$('#toggle-legend').text('Показать легенду');
+				}
+				hiding_timer = false;
+			}
+
+			//$('#hide-legend-button').on('click', hide_legend);
+
+			$('#toggle-legend').on('click', hide_toggle);
+
+			$('.new-legend li').on('click', function() {
+				if(!hiding_timer) {
+					console.log("must hide");
+					hiding_timer = true;
+					setTimeout(hide_toggle, 3000);
+				}
+			});
+
 			var this_chart = $('#container').highcharts();
 			var new_legend_item = $('.new-legend li');
 			new_legend_item.click(function() {
@@ -283,20 +269,20 @@ define(['./mediator'], function(mediator) {
 				var series = this_chart.series[item_id];
 				if (series.visible) {
 					series.hide();
-					$(this).find('a').css('color','red');
+					$(this).find('a').css('color', 'red');
 					//$button.html('Show series');
 				} else {
 					series.show();
-					$(this).find('a').css('color','green');
+					$(this).find('a').css('color', 'green');
 					//$button.html('Hide series');
 				}
 			});
 
 			$('#hide-all-series').on('click', function(e) {
 				var series_length = this_chart.series;
-				console.log(series_length);
 				for (var i = 0; i < series_length.length; i++) {
 					series_length[i].hide();
+					$(new_legend_item[i]).find('a').css('color', 'blue');
 				}
 			});
 		});
