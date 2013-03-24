@@ -1,7 +1,7 @@
 "use strict"
 /*global document $*/
 
-function Enemy_object() {
+function Enemy_object(nominal_fall_speed) {
 	this.box = $('<div/>', {
 		"class": "enemy-object",
 		"style": "left:" + Math.floor((Math.random() * 400) + 1) + "px; top:50px;"
@@ -10,14 +10,15 @@ function Enemy_object() {
 	this.container.append(this.box);
 	//console.log(this.box);
 	var self = this;
-	var fall_speed = 50;
+	var top_position = 50;
+	var fall_speed_rate = nominal_fall_speed || 60;
 	console.log(this.container.height() + this.container.offset().top);
 
 	this.enemy_falling_down = setInterval(function() {
 		if (self.box.offset().top < self.container.height() + self.container.offset().top) {
-			fall_speed += 1;
+			top_position += 1;
 			self.box.css({
-				'top': fall_speed
+				'top': top_position
 			});
 		} else {
 			clearInterval(self.enemy_falling_down);
@@ -25,7 +26,7 @@ function Enemy_object() {
 			self.box.remove();
 			var enemy = new Enemy_object();
 		}
-	}, 30);
+	}, fall_speed_rate);
 
 	window.app.mediator.subscribe('ninja_moving', function(data) {
 		self.box.offset({
@@ -51,7 +52,9 @@ function Enemy_object() {
 			});
 
 			self.box.remove();
-			var enemy = new Enemy_object();
+			var encrease_speed = parseInt(fall_speed_rate - 10, 10);
+			if(encrease_speed < 10) { encrease_speed = 10;}
+			var enemy = new Enemy_object(encrease_speed);
 			window.app.mediator.publish('enemy_dead');
 		}
 		//console.log(self.box.width());
