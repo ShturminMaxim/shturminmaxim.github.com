@@ -1,6 +1,5 @@
 "use strict"
 /*global document $*/
-$(function() {
 
 	function Ninja() {
 		this.ninja = $('#ninja');
@@ -24,6 +23,8 @@ $(function() {
 		this.speed = 0;
 		this.power = 0.2;
 		this.friction = 0.5;
+
+		this.ninja.show();
 	}
 
 	Ninja.prototype.events = function() {
@@ -83,6 +84,7 @@ $(function() {
 				self.ninja.offset({
 					left: self.ninja.offset().left + self.speed
 				});
+				window.app.mediator.publish('ninja_moving', self.speed);
 				// TODO take ground move and ground object to separate module
 				self.ground.offset({
 					left: self.ground.offset().left - self.speed
@@ -217,7 +219,7 @@ $(function() {
 		var i = 0;
 
 		if (!this.atacking) {
-			window.app.mediator.publish('atack', [self.side, self.ninja.offset().left + self.ninja.width(), self.ninja_center_point]);
+			window.app.mediator.publish('ninja_atacking', [self.side, self.ninja.offset().left + self.ninja.width(), self.ninja_center_point]);
 			//self.stop_moving(self.side);
 			var ataken = setInterval(function() {
 				self.atacking = true;
@@ -235,7 +237,5 @@ $(function() {
 
 		}
 	};
-
-	var ninja = new Ninja();
-
-});
+	window.Ninja = Ninja;
+console.log('Ninja');

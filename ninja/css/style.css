@@ -1,5 +1,6 @@
-	p {
+	p, ul, li {
 		margin: 0;
+		padding: 0;
 	}
 	.ninja-container {
 		position: relative;
@@ -13,6 +14,7 @@
 	}
 
 	#ninja {
+		display: none;
 		position: absolute;
 		z-index: 2;
 		bottom: 45px;
@@ -40,7 +42,7 @@
 	.counter {
 		width: 100px;
 		margin: 15px;
-		display: inline-block;
+		display: none;
 	}
 	.counter p {
 		display: inline-block;
@@ -49,6 +51,45 @@
 		float: right;
 		width: 50%;
 	}
+
+	.description li {
+		padding: 5px;
+	}
+
 	.clear {
 		clear: both;
+	}
+
+	.game-menu {
+		width: 200px;
+		height: 60px;
+		margin: 100px auto;
+		background-color: #dedefe;
+		display: none;
+		padding: 5px;
+		text-align: center;
+	}
+
+	.game-menu p {
+		color: blue;
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.game-menu ul {
+		list-style: none;
+		text-align: center;
+		margin-top: 20px;
+		font-size: 12px;
+	}
+
+	.game-menu li {
+		background-color: blue;
+		color: white;
+	}
+
+	.game-menu li:hover {
+		background-color: red;
+		color: white;
+		cursor: pointer;
 	}

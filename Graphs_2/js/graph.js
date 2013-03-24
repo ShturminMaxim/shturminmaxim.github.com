@@ -16,6 +16,8 @@ define(['./mediator'], function(mediator) {
 			/// 4. Описание оси координат Y - X_coordinates_description = [Array of String values];
 			/// 5. Количество данных и описаний-Х должно быть равно - recieved_graph_data.data.length === X_coordinates_description.length
 
+
+
 			Graph.table_name = data;
 
 			Graph.X_coordinates_description = ['1910', '1911', '1912', '1913', '1914', '1915',

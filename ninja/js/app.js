@@ -44,8 +44,6 @@ App.prototype.modules_loading = function() {
 	});
 };
 
-$(function() {
-	window.app = new App({
-		modules: ['ninja','enemy_object','counter']
+window.app = new App({
+		modules: ['ninja','enemy_object','counter','game_menu']
 	});
-});
