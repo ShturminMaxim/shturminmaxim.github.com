@@ -254,13 +254,13 @@ define(['./mediator'], function(mediator) {
 
 			$('#toggle-legend').on('click', hide_toggle);
 
-			$('.new-legend li').on('click', function() {
+			/*$('.new-legend li').on('click', function() {
 				if(!hiding_timer) {
 					console.log("must hide");
 					hiding_timer = true;
 					setTimeout(hide_toggle, 5000);
 				}
-			});
+			});*/
 
 			var this_chart = $('#container').highcharts();
 			var new_legend_item = $('.new-legend li');
