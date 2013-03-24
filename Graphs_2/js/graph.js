@@ -258,7 +258,7 @@ define(['./mediator'], function(mediator) {
 				if(!hiding_timer) {
 					console.log("must hide");
 					hiding_timer = true;
-					setTimeout(hide_toggle, 3000);
+					setTimeout(hide_toggle, 5000);
 				}
 			});
 
