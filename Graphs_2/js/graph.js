@@ -29,17 +29,17 @@ define(['./mediator'], function(mediator) {
 
 			Graph.example_recieved_graph_data = [{
 				name: 'Склад валового внутрішнього продукту',
-				data: [17.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 91.6],
+				data: [17.0, null, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 91.6],
 				visible: false,
 				zIndex: 1
 			}, {
 				name: 'Сільське господарство, мисливство, лісове господарство',
-				data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 82.6, 24.5],
+				data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 82.6, 24.5],
 				visible: false,
 				zIndex: 1
 			}, {
 				name: 'Добувна промисловість',
-				data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 31.9, 14.0],
+				data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 31.9, 14.0],
 				visible: false,
 				zIndex: 1
 			}, {
@@ -144,12 +144,306 @@ define(['./mediator'], function(mediator) {
 				zIndex: 1
 			}];
 
+			//////////////////////////
+			/////////////////////////
+			////////////////////////
+			Highcharts.theme = {
+				colors: ["#DDDF0D", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+					"#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+				chart: {
+					backgroundColor: {
+						linearGradient: {
+							x1: 0,
+							y1: 0,
+							x2: 1,
+							y2: 1
+						},
+						stops: [
+							[0, 'rgb(48, 48, 96)'],
+							[1, 'rgb(0, 0, 0)']
+						]
+					},
+					borderColor: '#000000',
+					borderWidth: 2,
+					className: 'dark-container',
+					plotBackgroundColor: 'rgba(255, 255, 255, .1)',
+					plotBorderColor: '#CCCCCC',
+					plotBorderWidth: 1
+				},
+				title: {
+					style: {
+						color: '#C0C0C0',
+						font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+					}
+				},
+				subtitle: {
+					style: {
+						color: '#666666',
+						font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
+					}
+				},
+				xAxis: {
+					gridLineColor: '#333333',
+					gridLineWidth: 1,
+					labels: {
+						style: {
+							color: '#A0A0A0'
+						}
+					},
+					lineColor: '#A0A0A0',
+					tickColor: '#A0A0A0',
+					title: {
+						style: {
+							color: '#CCC',
+							fontWeight: 'bold',
+							fontSize: '12px',
+							fontFamily: 'Trebuchet MS, Verdana, sans-serif'
 
+						}
+					}
+				},
+				yAxis: {
+					gridLineColor: '#333333',
+					labels: {
+						style: {
+							color: '#A0A0A0'
+						}
+					},
+					lineColor: '#A0A0A0',
+					minorTickInterval: null,
+					tickColor: '#A0A0A0',
+					tickWidth: 1,
+					title: {
+						style: {
+							color: '#CCC',
+							fontWeight: 'bold',
+							fontSize: '12px',
+							fontFamily: 'Trebuchet MS, Verdana, sans-serif'
+						}
+					}
+				},
+				tooltip: {
+					backgroundColor: 'rgba(0, 0, 0, 0.75)',
+					style: {
+						color: '#F0F0F0'
+					}
+				},
+				toolbar: {
+					itemStyle: {
+						color: 'silver'
+					}
+				},
+				plotOptions: {
+					line: {
+						dataLabels: {
+							color: '#CCC'
+						},
+						marker: {
+							lineColor: '#333'
+						}
+					},
+					spline: {
+						marker: {
+							lineColor: '#333'
+						}
+					},
+					scatter: {
+						marker: {
+							lineColor: '#333'
+						}
+					},
+					candlestick: {
+						lineColor: 'white'
+					}
+				},
+				legend: {
+					itemStyle: {
+						font: '9pt Trebuchet MS, Verdana, sans-serif',
+						color: '#A0A0A0'
+					},
+					itemHoverStyle: {
+						color: '#FFF'
+					},
+					itemHiddenStyle: {
+						color: '#444'
+					}
+				},
+				credits: {
+					style: {
+						color: '#666'
+					}
+				},
+				labels: {
+					style: {
+						color: '#CCC'
+					}
+				},
+
+				navigation: {
+					buttonOptions: {
+						symbolStroke: '#DDDDDD',
+						hoverSymbolStroke: '#FFFFFF',
+						theme: {
+							fill: {
+								linearGradient: {
+									x1: 0,
+									y1: 0,
+									x2: 0,
+									y2: 1
+								},
+								stops: [
+									[0.4, '#606060'],
+									[0.6, '#333333']
+								]
+							},
+							stroke: '#000000'
+						}
+					}
+				},
+
+				// scroll charts
+				rangeSelector: {
+					buttonTheme: {
+						fill: {
+							linearGradient: {
+								x1: 0,
+								y1: 0,
+								x2: 0,
+								y2: 1
+							},
+							stops: [
+								[0.4, '#888'],
+								[0.6, '#555']
+							]
+						},
+						stroke: '#000000',
+						style: {
+							color: '#CCC',
+							fontWeight: 'bold'
+						},
+						states: {
+							hover: {
+								fill: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0.4, '#BBB'],
+										[0.6, '#888']
+									]
+								},
+								stroke: '#000000',
+								style: {
+									color: 'white'
+								}
+							},
+							select: {
+								fill: {
+									linearGradient: {
+										x1: 0,
+										y1: 0,
+										x2: 0,
+										y2: 1
+									},
+									stops: [
+										[0.1, '#000'],
+										[0.3, '#333']
+									]
+								},
+								stroke: '#000000',
+								style: {
+									color: 'yellow'
+								}
+							}
+						}
+					},
+					inputStyle: {
+						backgroundColor: '#333',
+						color: 'silver'
+					},
+					labelStyle: {
+						color: 'silver'
+					}
+				},
+
+				navigator: {
+					handles: {
+						backgroundColor: '#666',
+						borderColor: '#AAA'
+					},
+					outlineColor: '#CCC',
+					maskFill: 'rgba(16, 16, 16, 0.5)',
+					series: {
+						color: '#7798BF',
+						lineColor: '#A6C7ED'
+					}
+				},
+
+				scrollbar: {
+					barBackgroundColor: {
+						linearGradient: {
+							x1: 0,
+							y1: 0,
+							x2: 0,
+							y2: 1
+						},
+						stops: [
+							[0.4, '#888'],
+							[0.6, '#555']
+						]
+					},
+					barBorderColor: '#CCC',
+					buttonArrowColor: '#CCC',
+					buttonBackgroundColor: {
+						linearGradient: {
+							x1: 0,
+							y1: 0,
+							x2: 0,
+							y2: 1
+						},
+						stops: [
+							[0.4, '#888'],
+							[0.6, '#555']
+						]
+					},
+					buttonBorderColor: '#CCC',
+					rifleColor: '#FFF',
+					trackBackgroundColor: {
+						linearGradient: {
+							x1: 0,
+							y1: 0,
+							x2: 0,
+							y2: 1
+						},
+						stops: [
+							[0, '#000'],
+							[1, '#333']
+						]
+					},
+					trackBorderColor: '#666'
+				},
+
+				// special colors for some of the
+				legendBackgroundColor: 'rgba(0, 0, 0, 0.5)',
+				legendBackgroundColorSolid: 'rgb(35, 35, 70)',
+				dataLabelsColor: '#444',
+				textColor: '#C0C0C0',
+				maskColor: 'rgba(255,255,255,0.3)'
+			};
+
+			// Apply the theme
+			var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+			////////////////////////
+			///////////////////
+			//////////////////////
 			var chart;
 			chart = new Highcharts.Chart({
 				chart: {
 					renderTo: 'container',
-					type: 'line',
+					type: 'column',
 					marginRight: 50,
 					marginBottom: 25
 
@@ -208,22 +502,12 @@ define(['./mediator'], function(mediator) {
 				series: Graph.example_recieved_graph_data
 			});
 
-			$('.new-legend>div').text('');
+			//////////////////////
+			////////////////////
+			/////////////////////
+			$('.legend ul').text('');
 			for (var i = 0; i < Graph.example_recieved_graph_data.length; i++) {
-				if (i < (Graph.example_recieved_graph_data.length / 3)) {
-					//console.log("1-" + i);
-					$('.new-legend-1').append('<li data-series-id="' + i + '"><a>' + Graph.example_recieved_graph_data[i].name + '</a></li>');
-					continue;
-				}
-				if (i < (Graph.example_recieved_graph_data.length / 3) * 2) {
-					//console.log("2-" + i);
-					$('.new-legend-2').append('<li data-series-id="' + i + '"><a>' + Graph.example_recieved_graph_data[i].name + '</a></li>');
-					continue;
-				}
-				if (i < (Graph.example_recieved_graph_data.length)) {
-					//console.log("3-" + i);
-					$('.new-legend-3').append('<li data-series-id="' + i + '"><a>' + Graph.example_recieved_graph_data[i].name + '</a></li>');
-				}
+				$('.legend ul').append('<li data-series-id="' + i + '"><a>' + Graph.example_recieved_graph_data[i].name + '</a></li>');
 				//console.log(Graph.example_recieved_graph_data[i].name);
 			}
 
@@ -236,37 +520,32 @@ define(['./mediator'], function(mediator) {
 			console.log(null_position);
 
 			$('.highcharts-legend').hide();
-			$('#toggle-legend').text('Скрыть легенду');
+			/*$('#toggle-legend').text('Скрыть легенду');*/
 			$('.buttons').show();
-
-			function hide_toggle() {
+			$('.legend').show();
+			/*	function hide_toggle() {
 				$('.new-legend').stop();
 				$('.new-legend').animate({
 					height: 'toggle'
 				}, 1000);
-				if($('#toggle-legend').text() === 'Показать легенду') {
+				if ($('#toggle-legend').text() === 'Показать легенду') {
 					$('#toggle-legend').text('Скрыть легенду');
 				} else {
 					$('#toggle-legend').text('Показать легенду');
 				}
 				hiding_timer = false;
-			}
+			}*/
 
 			//$('#hide-legend-button').on('click', hide_legend);
 
-			$('#toggle-legend').on('click', hide_toggle);
+			/*$('#toggle-legend').on('click', hide_toggle);*/
 
-			/*$('.new-legend li').on('click', function() {
-				if(!hiding_timer) {
-					console.log("must hide");
-					hiding_timer = true;
-					setTimeout(hide_toggle, 5000);
-				}
-			});*/
+
+			/*	setTimeout(hide_toggle, 1000);*/
 
 			var this_chart = $('#container').highcharts();
-			var new_legend_item = $('.new-legend li');
-			new_legend_item.click(function() {
+			var new_legend_item = $('.legend li');
+			new_legend_item.bind('click', function() {
 				var item_id = $(this).attr('data-series-id');
 				var series = this_chart.series[item_id];
 				if (series.visible) {
@@ -275,16 +554,142 @@ define(['./mediator'], function(mediator) {
 					//$button.html('Show series');
 				} else {
 					series.show();
-					$(this).find('a').css('color', 'green');
+					$(this).find('a').css('color', 'black');
 					//$button.html('Hide series');
 				}
+			});
+
+			// change type of chart
+			// Set type
+			$.each(['line', 'column', 'spline', 'area', 'areaspline'], function(i, type) {
+				$('#' + type).click(function() {
+					for (var i = 0; i < this_chart.series.length; i++) {
+						this_chart.series[i].update({
+							type: type
+						});
+					}
+
+					console.log('type - ' + type);
+				});
 			});
 
 			$('#hide-all-series').on('click', function(e) {
 				var series_length = this_chart.series;
 				for (var i = 0; i < series_length.length; i++) {
 					series_length[i].hide();
-					$(new_legend_item[i]).find('a').css('color', 'blue');
+					$(new_legend_item[i]).find('a').css('color', '#ffffff');
+				}
+			});
+
+			$(function() {
+				'use strict';
+
+				var legendNode;
+				var tailNode;
+				var isVisible;
+				var isAnimating;
+
+				legendNode = $('.legend');
+				tailNode = $('.legend .tail');
+				isVisible = false;
+				isAnimating = false;
+
+				function toggleLegend() {
+					isAnimating = true;
+					if (isVisible) {
+						isVisible = false;
+						legendNode.stop().animate({
+							'right': -400
+						}, 5000, 'easeOutBack', function() {
+							isAnimating = false;
+						});
+					} else {
+						isVisible = true;
+						legendNode.stop().animate({
+							'right': 0
+						}, 'easeOutBack', function() {
+							isAnimating = false;
+						});
+					}
+				}
+
+
+				/*legendNode.bind('mouseenter', function() {
+					if (isVisible) {
+						return;
+					}
+					isAnimating = true;
+					legendNode.stop().animate({
+						'right': 0
+					}, 500, 'easeInOutCubic', function() {
+						isAnimating = false;
+					});
+				});*/
+
+				/*legendNode.bind('mouseleave', function() {
+					if (isVisible) {
+						return;
+					}
+					isAnimating = true;
+					legendNode.stop().animate({
+						'right': -390
+					}, 500, 'easeInOutCubic', function() {
+						isAnimating = false;
+					});
+				});*/
+
+				/*
+				 * event handling
+				 */
+				/*$(document).bind('click', function() {
+					if (isVisible && !isAnimating) {
+						toggleLegend();
+					}
+				});*/
+				function getCookie(c_name) {
+					var i, x, y, ARRcookies = document.cookie.split(";");
+					for (i = 0; i < ARRcookies.length; i++) {
+						x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+						y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+						x = x.replace(/^\s+|\s+$/g, "");
+						if (x == c_name) {
+							return unescape(y);
+						}
+					}
+				}
+
+				function setCookie(c_name, value, exdays) {
+					var exdate = new Date();
+					exdate.setDate(exdate.getDate() + exdays);
+					var c_value = escape(value) + ((exdays === null) ? "" : "; expires=" + exdate.toUTCString());
+					document.cookie = c_name + "=" + c_value;
+				}
+
+				function checkCookie() {
+					var username = getCookie("username");
+					if (username !== null && username !== "") {
+						alert("Welcome again " + username);
+					} else {
+						username = prompt("Please enter your name:", "");
+						if (username !== null && username !== "") {
+							setCookie("username", username, 365);
+						}
+					}
+				}
+
+				function showLegendOnLoad() {
+					isAnimating = true;
+					legendNode.css('right', -380);
+					legendNode.stop().animate({
+						'right': -400
+					}, 1000, 'easeOutBounce', function() {
+						isAnimating = false;
+					});
+					setCookie('show_onload', 'showed', 10);
+				}
+				tailNode.bind('click', toggleLegend);
+				if(!getCookie('show_onload')) {
+					showLegendOnLoad();
 				}
 			});
 		});

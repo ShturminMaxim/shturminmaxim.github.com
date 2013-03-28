@@ -1,20 +1,81 @@
+body {
+			overflow: hidden;
+		}
+
+.navigation-menu {
+	height: 45px;
+	background: #353a94;
+	color: #ffffff;
+	border-radius: 0 0 10px 10px;
+}
 
 .navigation-menu ul {
 	margin: 10px;
 }
 
-.new-legend-1, .new-legend-2, .new-legend-3 {
-	padding: 10px;
-	list-style: none;
-	font-size: 12px;
-}
 
 .navigation-menu li {
 	list-style: none;
 	display: inline;
-	outline: solid 1px;
 	padding: 5px;
+	cursor: pointer;
+	border-radius: 5px;
 }
+
+#hide-all-series {
+	margin: 0 30px;
+	font-size: 16px;
+	color: yellow;
+	cursor: pointer;
+}
+
+#hide-all-series:hover {
+
+}
+
+.navigation-menu li:hover {
+	background-color: #575cad;
+}
+
+.legend {
+			position: absolute;
+			right: 0;
+			top: 60px;
+			width: 400px;
+			right: -400px;
+			display: none;
+		}
+
+		.legend .tail,
+		.legend .legend-body {
+			background: rgb(61, 106, 162);
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+
+		.legend .legend-body {
+			padding: 0.5em;
+			color: #cecece;
+		}
+
+		.legend .tail {
+			width: 30px;
+			height: 80px;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			left: -30px;
+			color: #ffffff;
+		}
+.legend li a {
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.btn-group {
+	margin: 0 30%;
+}
+
 
 .header {
 	height: 100px;
@@ -27,14 +88,8 @@
 	text-align: center;
 }
 
-.navigation-menu {
-	height: 45px;
-	background: #defede;
-}
-
 .content {
 	min-height: 500px;
-	background: #cedefe;
 }
 
 .footer {

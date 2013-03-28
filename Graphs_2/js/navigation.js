@@ -10,7 +10,7 @@ define(['./mediator'], function(mediator) {
 		//Graph.table_names = [];
 		//Graph.Graph.example_recieved_graph_names_array = []; не уверен
 
-		var menu_items = ['Валовий внутрішній продукт', 'второй график'];
+		var menu_items = ['Валовий внутрішній продукт'];
 
 	$(menu_items).each(function(item, value) {
 		menu_container.append('<li>'+value+'</li>');
