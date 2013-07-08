@@ -10,7 +10,7 @@ define(['./mediator'], function(mediator) {
 		text: 'Start the Game!'
 	});
 
-	return function() {
+	return (function() {
 		container.append(menu_box);
 		menu_box.append(start_button);
 		start_button.bind('click', function() {
@@ -18,5 +18,5 @@ define(['./mediator'], function(mediator) {
 			mediator.publish('start-game');
 			menu_box.hide();
 		});
-	};
+	}());
 });

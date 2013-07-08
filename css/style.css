@@ -172,8 +172,8 @@ h1 small {
 }
 .content .mainbar div.img {
 	padding:12px 0;
-	float:left;
-	width: 30%
+	float: left;
+	width: 30%;
 }
 .content .mainbar img {
 }
@@ -189,8 +189,8 @@ h1 small {
 .content .mainbar .post_content {
 	font: normal 14px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
 	color: rgb(76, 78, 78);
-	float:right;
-	width:70%;
+	float: right;
+	width:65%;
 }
 .content .mainbar .post_content strong {
 	color:#585757;

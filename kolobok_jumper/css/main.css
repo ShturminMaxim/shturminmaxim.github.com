@@ -32,9 +32,9 @@ abbr,acronym { border:0;
 .game-container {
 	position: relative;
 	padding: 5px;
-	margin: 50px;
-	width: 400px;
-	height: 500px;
+	/*margin: 50px;*/
+	max-width: 390px;
+	height: 480px;
 	background-color: #e1d5bf;
 	border: solid 10px #000000;
 }
@@ -64,4 +64,11 @@ abbr,acronym { border:0;
 	background: url('../img/kolobok.png');
 	position: absolute;
 	bottom: 25px;
+}
+
+.plate {
+	width: 150px;
+	height: 60px;
+	position: absolute;
+	background: url('../img/cloud.png');
 }
