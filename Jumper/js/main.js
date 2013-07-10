@@ -5,7 +5,7 @@ require(['static_data', 'mediator', 'menu', 'kolobok', 'plates', 'game_backgroun
 	mediator.subscribe('start-game', function() {
 		// add backgound image to container all static data in other one file
 		game_background.add_to_container(static_data.container, static_data.bg_img_url);
-
+		//static_data.container_edges = [static_data.container.offset().left, static_data.container.offset().left+static_data.container.width()];
 		//plates.add_to_container(static_data.container, static_data.plate);
 		plates.add_to_container(static_data.container);
 		// add player to container
@@ -13,7 +13,6 @@ require(['static_data', 'mediator', 'menu', 'kolobok', 'plates', 'game_backgroun
 
 		var game_updater = setInterval(function() {
 			kolobok.update();
-			kolobok.check_collisions();
 		},10);
 
 	});

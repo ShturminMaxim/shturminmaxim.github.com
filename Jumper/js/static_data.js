@@ -3,6 +3,7 @@ define(['./mediator'/*, './kolobok'*/], function(mediator/*, kolobok*/) {
 
 	return {
 		container: $('.game-container'),
+		container_edges : [6,351],
 		bg_img_url : './img/background-ground.png',
 		plate_img: './img/cloud.png',
 		player: $('<div/>', {class:'kolobok'}),
