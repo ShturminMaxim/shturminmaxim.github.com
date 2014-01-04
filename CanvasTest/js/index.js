@@ -1,15 +1,14 @@
 window.onload = function (argument) {
 	var frame = 0;
 	var framesInRow = 3;
-	var currentRow = 0;
 	var frameSize = {
 		x:32,
 		y:45
 	};
     var step = 5;
-    var x;
-    var curX = 0;
-    var curY = 0;
+    var x = 0;
+    var curX = 10;
+    var curY = 10;
     var keyMap = {
         '37':0,
         '38':0,
@@ -38,7 +37,7 @@ window.onload = function (argument) {
         }
     }
     //test ground element for collision test
-    var howManyElements = 3;
+    var howManyElements = +localStorage.howManyElements || 5;
     var rockCoords = [129,0];
     var rockSize = 32;
     var rock = new Image();
@@ -155,19 +154,22 @@ window.onload = function (argument) {
 	}, 60);
 
 	document.addEventListener('keydown', function(e){
-        e.preventDefault();
         //console.log(e.keyCode);
         side = e.keyCode;
         if(side === 37) {
+            e.preventDefault();
             keyMap[37] = 1;
         }
         if(side === 38) {
+            e.preventDefault();
             keyMap[38] = 1;
         }
         if(side === 39) {
+            e.preventDefault();
             keyMap[39] = 1;
         }
         if(side === 40) {
+            e.preventDefault();
             keyMap[40] = 1;
         }
 
