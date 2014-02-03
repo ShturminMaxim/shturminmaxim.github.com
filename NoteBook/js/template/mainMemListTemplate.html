@@ -1,0 +1,40 @@
+<div class="mems-list">
+    <table class="form-table">
+        <thead>
+        <th>My activity </th>
+        </thead>
+        <tbody>
+        <tr><td>
+            <input class="activity" type="text" placeholder="activity"/>
+            <input class="time" type="text" placeholder="time"/>
+            <span class="more">more</span>
+        </td></tr>
+        <tr><td><button class="addMem">add activity</button></td></tr>
+        <tr class="additional-field">
+            <td>
+                <select class="task" type="text" placeholder="task">
+                    <option value="regular">regular</option>
+                    <option value="other">other</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="additional-field">
+            <td>
+                <select class="client" type="text" placeholder="client">
+                    <option value="clean">not chosen</option>
+                    <option value="other">other</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="additional-field">    <td><input class="link" type="text" placeholder="link"/></td></tr>
+        </tbody>
+    </table>
+    <div class="active-date"> Active day : <%- date %> </div>
+    <table id="mems">
+        <thead>
+            <th>task</th><th>planned time</th><th>when added</th>
+        </thead>
+
+    </table>
+
+</div>
