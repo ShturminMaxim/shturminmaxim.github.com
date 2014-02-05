@@ -21,8 +21,13 @@ body {
 .mem-item {
 
 }
+.activity {
+    font-size: 22px;
+    width: 160px;
+}
 .time {
-    width: 25px;
+    font-size: 22px;
+    width: 45px;
 }
 .addMem {
     width: 100%;
