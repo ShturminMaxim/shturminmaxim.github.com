@@ -1,4 +1,4 @@
-(function(){
+//(function(){
 	"use strict";
 	var stage = new createjs.Stage("canvas");
 	var canvas = document.getElementById("canvas");
@@ -10,7 +10,7 @@
 	var step = 6;
 	var wormBody = [];
 	var wormBodyLength = 10;
-	var updateBodyElems = function() {
+	var addBodyElems = function() {
 			wormBody = [];
 
 			for (var i = 0; i < wormBodyLength; i++) {
@@ -63,7 +63,22 @@
 	}
 	var addElem = function() {
 		wormBodyLength++;
-		updateBodyElems();
+		(function() {
+			var lastWormElem = wormBody[wormBody.length-1];
+			var nElem = new createjs.Shape();
+			var x,
+				y;
+
+			nElem.oldCoords = {};
+			x = lastWormElem.x;
+			y = lastWormElem.y;
+
+			nElem.graphics.beginFill("#ffffff").drawRect(0, 0, 6, 6);
+			wormBody.push(nElem);
+			stage.addChild(nElem);
+			nElem.x = x;
+			nElem.y = y;
+		}());
 	}
 		//-------------- lets add some planets
 	var Planets = function() {
@@ -98,7 +113,7 @@
 
 	wormHead.graphics.beginFill("#ffffff").drawRect(0, 0, 6, 6);
 	stage.addChild(wormHead);
-	updateBodyElems();
+	addBodyElems();
 
 	createjs.Ticker.addEventListener("tick", stage);
 	createjs.Ticker.addEventListener("tick", function() {
@@ -196,6 +211,7 @@
 				p.planets.splice (i, 1);
 				stage.removeChild(elem);	
 				p.addPlanet();	
+				addElem();
 			}
 		})
 	}
@@ -252,4 +268,4 @@
 	//-------------- add stars
 	window.s = new Stars();
 	s.init();
-}())
+//}())
