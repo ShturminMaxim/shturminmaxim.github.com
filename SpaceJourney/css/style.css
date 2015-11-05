@@ -1,0 +1,311 @@
+
+#canvas {
+    background: #000;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    border: none;
+
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+html {
+    background: #000;
+}
+body {
+
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.interface {
+    display: none;
+}
+.debug {
+    /*display: none;          */
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 10;
+    color:#ffffff;
+}
+.message {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 10%;
+    right: 10%;
+    height: 50px;
+    background: #0093ff;
+    color: #010101;
+    text-align: center;
+    padding: 10px;
+}
+.dialog {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+    color: #010101;
+    text-align: center;
+    padding: 10px;
+}
+.dialog-container {
+    position: absolute;
+    z-index: 200;
+    left: 50%;
+    background: #FFD6D6;
+    width: 80%;
+    margin-left: -40%;
+}
+.text {
+    text-align: left;
+    margin: 10px;
+    padding: 5px;
+}
+.close, .ok {
+    width: 40%;
+    height: 40px;
+    background: #dedede;
+    margin: 10px 0 10px 10px;
+    display: inline-block;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background: #dedede;
+    margin: 10px 0 0 10px;
+}
+.shield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    color: #FDFDFD;
+    background: blue;
+    height: 10px;
+    width: 120px;
+    font-size: 11px;
+    padding: 2px 2px;
+}
+
+.fuelContainer {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+    color:#ffffff;
+    background: blue;
+    height: 120px;
+    width: 10px;
+    font-size: 11px;
+    padding: 2px;
+}
+.ammo {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    z-index: 10;
+    color: rgb(253, 253, 253);
+    height: 10px;
+    width: 120px;
+    font-size: 11px;
+    background: red;
+    padding: 2px 2px;
+}
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    vertical-align: top;
+    height: 20px;
+    z-index: 120;
+    color: #ffffff;
+}
+.score .amount {
+    vertical-align: top;
+    margin-top: 1px;
+    display: inline-block;
+}
+.mineralimg {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url("../img/rock.png") no-repeat;
+}
+.coinimg {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url("../img/coin.png") no-repeat;
+}
+.coins {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    vertical-align: top;
+    height: 20px;
+    z-index: 120;
+    color:#ffffff;
+}
+.coins-count {
+    vertical-align: top;
+    margin-top: 1px;
+    display: inline-block;
+}
+
+
+/*
+* bottom-panel
+*/
+.bottom-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 125;
+    width: 100%;
+}
+.left-button {
+    height: 90px;
+    width: 120px;
+    background: url('../img/left_key_btn.png') no-repeat;
+    float: left;
+    position: relative;
+    z-index: 30;
+}
+.right-button {
+    height: 90px;
+    width: 120px;
+    background: url('../img/right_key_btn.png') no-repeat;
+    float: right;
+    position: relative;
+    z-index: 30;
+}
+.fire-button {
+    height: 90px;
+    width: 222px;
+    background: url('../img/fire_btn.png') no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: -103px;
+    z-index: 20;
+}
+/*
+* Main menu styles
+*/
+.main-menu {
+    display: block;
+    position: absolute;
+    z-index: 130;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+}
+.main-menu li {
+    margin: 12px 0;
+    height: 34px;
+    font-size: 24px;
+    line-height: 30px;
+    background: url("../img/interface/btn1.png") top center no-repeat;
+}
+.overlay {
+    display: block;
+    position: absolute;
+    z-index: 120;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../res/screen/android/screen-mdpi-portrait.png") no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+    -khtml-opacity: 0.7;
+}
+.main-menu {
+
+}
+.main-menu ul {
+
+}
+.main-menu li {
+    margin: 20px 0;
+}
+
+/*
+* inGAME menu
+*/
+.ingame-menu {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    background: url("../img/interface/bg.png") center no-repeat;
+}
+.ingame-menu ul {
+    margin: 100px auto;
+    width: 60%;
+}
+.ingame-menu li {
+    background: url("../img/interface/btn1.png") center no-repeat;
+    font-size: 20px;
+    height: 62px;
+    width: 156px;
+    display: inline-block;
+    line-height: 40px;
+}
