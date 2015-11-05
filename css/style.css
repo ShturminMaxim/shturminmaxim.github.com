@@ -1,5 +1,9 @@
 /* Design by http://www.dreamtemplate.com */
 @charset "utf-8";
+#control-frame {
+	width: 100%;
+	min-height: 800px;
+}
 body {
 	margin:0;
 	padding:0;
