@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Learning Flash</title>
+	<style>
+		.menu {
+			float:left;
+			margin: 0 20px;
+		}
+		.swf-content {
+			float:left;
+		}
+	</style>
+</head>
+<body>
+	<div><span>In 2011 ilearned Flash technology and Action Script 3.</span></div>
+	<div><span>This is my experiments.</span></div>
+	<ul class="menu">
+		<li><a data-filename="plane1" href="#">Flying plane - (use arrows left/rigt and space)</a></li>
+		<li><a data-filename="webliner_main" href="#">Website menu</a></li>
+		<li><a data-filename="ilay2" href="#">Character move in some room (use arrows to move)</a></li>
+		<li><a data-filename="menu" href="#">Test menu and fadeIn</a></li>
+		<li><a data-filename="webliner" href="#">Simple moving animation</a></li>
+		<li><a data-filename="logo" href="#">Logo for website</a></li>
+		<li><a data-filename="logo2" href="#">Another logo for website</a></li>
+		<li><a data-filename="soldier" href="#">Rotating soldier.</a></li>
+	</ul>
+	<div class="swf-content">
+		<object class="swf-movie" width="550" height="400" align="middle">
+			<param class="f-link-value" name="movie" value="plane1.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#ffffff" />
+			<param name="play" value="true" />
+			<param name="loop" value="true" />
+			<param name="wmode" value="window" />
+			<param name="scale" value="showall" />
+			<param name="menu" value="true" />
+			<param name="devicefont" value="false" />
+			<param name="salign" value="" />
+			<param name="allowScriptAccess" value="sameDomain" />
+			<!--[if !IE]>-->
+			<object type="application/x-shockwave-flash" class="link-data" data="plane1.swf" width="550" height="400">
+				<param class="s-link-value" name="movie" value="plane1.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="window" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
+			<!--<![endif]-->
+				<a href="http://www.adobe.com/go/getflash">
+					<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Загрузить Adobe Flash Player" />
+				</a>
+			<!--[if !IE]>-->
+			</object>
+			<!--<![endif]-->
+		</object>
+	</div>
+</body>
+<script>
+	(function(){
+		"use strict";
+		var links = document.querySelectorAll(".menu li>a");
+		var length = links.length;
+
+		for (var i = 0; i < length; i++) {
+			links[i].addEventListener('click', function(e){
+				var filename = e.target.getAttribute("data-filename");
+				var currHtml;
+				//document.querySelector('.data-iframe').setAttribute("href", ""+filename+'.swf');
+				document.querySelector('.f-link-value').setAttribute("value", ""+filename+'.swf');
+				document.querySelector('.s-link-value').setAttribute("value", ""+filename+'.swf');
+				document.querySelector('.link-data').setAttribute("data", ""+filename+'.swf');
+				currHtml = document.querySelector('.swf-content').innerHTML;
+				document.querySelector('.swf-content').innerHTML = "";
+				document.querySelector('.swf-content').innerHTML = currHtml;
+				document.querySelector('.swf-movie').focus();
+			});
+		};
+	}());
+</script>
+</html>

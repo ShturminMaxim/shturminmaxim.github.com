@@ -1,0 +1,231 @@
+body{
+font-family:Helvetica, Arial, Verdana, sans-serif;
+}
+body,ul,li,p  {
+	list-style: none;
+        padding:0;
+        margin:0;
+        border:0;
+    }
+
+.header-menu {
+	position: absolute;
+    top: 0;
+	height: 45px;
+	width: 100%;
+	background: url("../img/top-menu-background.png") repeat-x;
+}
+
+
+.footer {
+	height: 127px;
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#wrapper {
+	position:absolute;
+    z-index:1;
+    top:45px;
+    bottom:127px;
+    left:0;
+    width:100%;
+    background:#aaa;
+	padding: 0;
+}
+
+
+.top-menu-button {
+	display: inline-block;
+	height: 37px;
+	width: 50px;
+	background: url("../img/menu-button.png") no-repeat;
+}
+.top-logo {
+	display: inline-block;
+	height: 40px;
+	width: 210px;
+	background: url("../img/logo.png") no-repeat;
+}
+.top-search {
+	display: inline-block;
+	height: 37px;
+	width: 50px;
+	background: url("../img/search-button.png") no-repeat;
+}
+
+.social-buttons {
+	display: inline-block;
+	height: 31px;
+	width: 152px;
+	margin: 1px;
+	background: url("../img/social-buttons.png") no-repeat;
+}
+.bar-1 {
+	height: 34px;
+	background: url("../img/top-menu-background.png") repeat-x;
+}
+.bar-2 {
+	height: 47px;
+	background: #ffffff;
+}
+
+.banner-l {
+	display: inline-block;
+	float: left;
+	height: 47px;
+	width: 150px;
+	background: url("../img/banner-l.png") no-repeat;
+}
+
+.banner-r {
+	display: inline-block;
+	float: right;
+	height: 47px;
+	width: 150px;
+	background: url("../img/banner-r.png") no-repeat;
+}
+
+.bar-3 {
+	height: 47px;
+	background: url("../img/footer-menu-background.png") repeat-x;
+}
+
+#description {
+	width:320px;
+}
+
+#slider-wrapper {
+	width:320px;
+	height:260px;
+
+	float:left;
+	position:relative;	/* On older OS versions "position" and "z-index" must be defined, */
+	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
+	overflow:hidden;
+
+	background:#aaa;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+	background:#e3e3e3;
+}
+
+#scroller {
+	width:1600px;
+	height:100%;
+	float:left;
+	padding:0;
+}
+
+#scroller ul {
+	list-style:none;
+	display:block;
+	float:left;
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+
+#scroller li {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	box-sizing:border-box;
+	display:block; float:left;
+	width:320px; height:160px;
+	text-align:center;
+	font-family:georgia;
+	font-size:18px;
+	line-height:140%;
+}
+
+#nav {
+	display: inline-block;
+	float:right;
+}
+
+#prev, #next {
+	float:left;
+	font-weight:bold;
+	font-size:14px;
+	padding:5px 0;
+	width:80px;
+}
+
+#next {
+	float:right;
+	text-align:right;
+}
+
+#indicator, #indicator > li {
+	display:block; float:left;
+	list-style:none;
+	padding:0; margin:0;
+}
+
+#indicator {
+	width:110px;
+	padding:12px 0 0 30px;
+}
+
+#indicator > li {
+	text-indent:-9999em;
+	width:8px; height:8px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	background:#ddd;
+	overflow:hidden;
+	margin-right:4px;
+}
+
+#indicator > li.active {
+	background:#888;
+}
+
+#indicator > li:last-child {
+	margin:0;
+}
+
+.bar-3 a {
+	display: inline-block;
+	font-family: Helvetica;
+	font-size: 8px;
+	color: #ffffff;
+	margin-top: 30px;
+}
+.res-themes {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	width: 24%;
+	height: 47px;
+	background: url("../img/book-icon.png") 50% 0 no-repeat;
+}
+.res-box {
+	display: inline-block;
+	text-align: center;
+	width: 24%;
+	height: 47px;
+	background: url("../img/box-icon.png") 50% 0 no-repeat;
+}
+.shop-list {
+	display: inline-block;
+	text-align: center;
+	width: 24%;
+	height: 47px;
+	background: url("../img/list-icon.png") 50% 0 no-repeat;
+}
+.meal-maker {
+	display: inline-block;
+	text-align: center;
+	width: 24%;
+	height: 47px;
+	background: url("../img/meal-icon.png") 50% 0 no-repeat;
+}

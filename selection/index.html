@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <style>
+  .wrap-container {
+  	position: relative;
+  	overflow: hidden;
+  }
+  .crop-window {
+  	position: absolute;
+  	border: solid 1px white;
+  	background: red;
+  	opacity: 0.2;
+  }
+  </style>
+</head>
+<body>
+
+<img width="500" height="282" id="heroes" src="heroes.jpg">
+
+<div id="info"></div>
+
+<p>text</p>
+<script>
+"use strict";
+///TODO сделать второй контейнер для отображения данных info блока.
+function Croppable(options) {
+	this.img = options.elem;
+	this.wrapper = get_elem('wrap-container');
+	$('body').prepend(this.wrapper);
+	var info_block = $('#info');
+	this.container = $('.wrap-container');
+
+	this.container.append(this.img, info_block);
+	this.container.css({
+		width: this.img.width(),
+		height: (this.img.height() + info_block.height(20))
+	});
+
+	this.click_delegate();
+	this.overlay = get_elem('crop-window');
+
+	function get_elem(node_class) {
+		var elem = $('<div/>', {
+			"class": node_class,
+		});
+		return elem;
+	}
+}
+
+Croppable.prototype.click_delegate = function() {
+	var self = this;
+	this.h_resize_animation = false;
+	this.v_resize_animation = false;
+
+	$(this.container).delegate(this.container, 'mousedown', function(event) {
+		var target = $(event.target);
+		var y = event.clientY;
+		var x = event.clientX;
+		event.preventDefault();
+		self.container.append(self.overlay);
+		self.overlay.offset({
+			left: x,
+			top: y
+		});
+
+		self.resize_animation = true;
+		self.resize(x, y);
+	});
+
+	$(window).delegate($('body'), 'mouseup', function(event) {
+		console.log("mup");
+		self.resize_animation = false;
+
+		$(window).unbind('mousemove');
+		$(self).triggerHandler({
+			type: "crop",
+			width: self.overlay.width(),
+			height: self.overlay.height(),
+			top: self.overlay.offset().top,
+			left: self.overlay.offset().left
+		});
+		self.overlay.remove();
+		self.overlay.height(0);
+		self.overlay.width(0);
+	});
+}
+
+
+Croppable.prototype.resize = function(x, y) {
+	var self = this;
+	var over_left_border, over_top_border, over_bottom_border, over_right_border;
+
+	$(window).mousemove(function(event) {
+		var mouse_coord_y = (event.pageY - y);
+		var mouse_coord_x = (event.pageX - x);
+		over_left_border = (event.pageX < self.img.offset().left);
+		over_top_border = (event.pageY < self.img.offset().top);
+		over_bottom_border = (event.pageY > (self.img.offset().top + self.img.height()));
+		over_right_border = (event.pageX > (self.img.offset().left + self.img.width()));
+		if(self.resize_animation) {
+			// console.log("left border - "+(event.pageX > self.img.offset().left));
+			// console.log("top border - "+(event.pageY > self.img.offset().top));
+			// console.log("bottom border - "+(event.pageY < (self.img.offset().top+self.img.height())));
+			// console.log("right border - "+(event.pageX < (self.img.offset().left+self.img.width())));
+			self.overlay.offset({
+				top: y,
+				left: x
+			});
+			if(over_bottom_border) {
+				self.overlay.height(self.img.offset().top+self.img.height()-y);
+			} else {
+				self.overlay.height(mouse_coord_y);
+			}
+			if(over_right_border) {
+				self.overlay.width(self.img.offset().left+self.img.width()-x);
+			} else {
+				self.overlay.width(mouse_coord_x);
+			}
+			if(mouse_coord_y < 0) {
+				if(over_top_border) {
+					self.overlay.offset({
+						top: self.img.offset().top
+					});
+					self.overlay.height(y - self.img.offset().top);
+				} else {
+					self.overlay.offset({
+						top: (y + mouse_coord_y)
+					});
+					self.overlay.height(-mouse_coord_y);
+				}
+			}
+			if(mouse_coord_x < 0) {
+				if(over_left_border) {
+					self.overlay.offset({
+						left: self.img.offset().left
+					});
+					self.overlay.width(x - self.img.offset().left);
+				} else {
+					self.overlay.offset({
+						left: (x + mouse_coord_x)
+					});
+					self.overlay.width(-mouse_coord_x);
+				}
+			}
+
+		}
+
+	});
+}
+
+var croppable = new Croppable({
+	elem: $('#heroes')
+});
+
+$(croppable).on("crop", function(event) {
+	// вывести координаты и размеры crop-квадрата относительно изображения
+	var str = "";
+	$(['left', 'top', 'width', 'height']).each(function() {
+		str += this + ":" + event[this] + " ";
+	});
+
+	$('#info').html("Crop: " + str);
+});
+</script>
+
+</body>
+</html>

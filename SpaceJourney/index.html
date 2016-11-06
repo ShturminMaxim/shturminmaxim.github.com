@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<meta name="msapplication-tap-highlight" content="no"/>
+	<title>Space Journey project</title>
+	<link rel="stylesheet" href="css/style.css"/>
+	<script src="lang/ru-RU.js"></script>
+	<script src="js/libs/jquery-2.1.3.min.js"></script>
+	<script src="js/libs/preloadjs-NEXT.min.js"></script>
+	<script src="js/libs/easeljs-0.8.0.min.js"></script>
+	<script src="js/libs/ndgmr.Collision.js"></script>
+	<script data-main="js/main" src="js/require.js"></script>
+</head>
+<body>
+	<div class="interface">
+		<div class="debug"></div>
+		<div class="message"></div>
+		<div class="dialog">
+			<div class="overlay"></div>
+			<div class="dialog-container">
+				<div class="avatar"></div>
+				<div class="text"></div>
+				<div class="close"></div>
+				<div class="ok"></div>
+			</div>
+		</div>
+		<div class="fuelContainer"><span>{{fuel}}</span></div>
+		<div class="ammo"><span>{{energy}}</span></div>
+		<div class="shield"><span>{{shield}}</span></div>
+		<div class="coins"><span class="coins-count">0</span> : <span class="coinimg"></span> </div>
+		<div class="score"><span class="amount">0</span> : <span class="mineralimg"></span></div>
+
+		<!--<div class="bottom-panel">
+			<div class="left-button"></div>
+			<div class="right-button"></div>
+			<dif class="fire-button"></dif>
+		</div>-->
+
+		<div class="main-menu-container">
+			<div class="overlay"></div>
+			<div class="main-menu">
+				<ul>
+					<li class="game-start">{{start}}</li>
+					<li class="game-credits">{{credits}}</li>
+					<li class="game-help">{{help}}</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ingame-menu">
+			<ul>
+				<li class="ing-launch">{{launch}}</li>
+				<li class="ing-trade">{{trade}}</li>
+				<li class="ing-repair">{{repair}}</li>
+			</ul>
+		</div>
+	</div>
+	<canvas id="canvas">No canvas?Take New Browser!</canvas>
+</body>
+</html>

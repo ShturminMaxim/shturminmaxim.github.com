@@ -1,0 +1,37 @@
+
+.navigation-menu ul {
+	margin: 10px;
+}
+
+.navigation-menu li {
+	list-style: none;
+	display: inline;
+	outline: solid 1px;
+	padding: 5px;
+}
+
+.header {
+	height: 100px;
+	background: #dedede;
+}
+
+.buttons {
+	display: none;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.navigation-menu {
+	height: 45px;
+	background: #defede;
+}
+
+.content {
+	min-height: 500px;
+	background: #cedefe;
+}
+
+.footer {
+	height: 50px;
+	background: #cecece;
+}

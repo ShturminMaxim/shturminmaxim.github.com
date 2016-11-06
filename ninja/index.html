@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ninja move</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+	<div class="description">
+		<p>Ninja prototype.</p>
+	<ul>
+		<li><p>Ninja can move, jump and atack</p></li>
+		<li><p>Add moving ground</p></li>
+		<li><p>Active buttons: Left, Right, Up, space</p></li>
+		<li>
+			<p>Add atack animation while ninja is flying</p>
+		</li>
+		<li><p>1/03/13 I used mediator for construct application. Now i have 3 modules: ninja, enemy-box, counter, which firing events for each other. Also need to create ground module. Think about terrible ninja moving =)</p></li>
+		<li>
+			<p>TODO add movment to the box.Some optimization in Application for calling modules in one place. thinking...</p>
+		</li>
+	</ul>
+	</div>
+	<div class="ninja-container">
+		<div class="counter">Defeated:<p class="defeated-count">0</p></div>
+		<div class="counter">Losted:<p class="passed-count">0</p></div>
+		<div class="game-menu">
+			<p>Ninja prototype</p>
+			<ul>
+				<li class="start-game">Start Game</li>
+			</ul>
+		</div>
+		<div id="ninja"></div>
+		<div class="ground"></div>
+	</div>
+</body>
+</html>

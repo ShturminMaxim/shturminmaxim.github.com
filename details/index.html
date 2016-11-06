@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tooltips</title>
+	<style>
+	body, html {
+		padding: 0;
+		margin: 0;
+	}
+.container {
+	margin: 0 auto;
+	width: 1020px;
+	min-height: 100%;
+}
+
+.tooltip-box {
+	height: 120px;
+	width: 200px;
+	background: #dedede;
+	position: relative;
+	float: left;
+	margin: 2px;
+}
+.tooltip-box .inner-text {
+	margin: 0;
+	padding: 10px;
+}
+.show-details-button {
+	height: 20px;
+	width: 20px;
+	background: red;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.details{
+	display: none;
+	height: 50px;
+	width: 171px;
+	position: absolute;
+	z-index: 10;
+	background: #A1B0FF;
+	padding: 15px;
+	overflow: hidden;
+}
+.details1 {
+	top: 39px;
+	right: -205px;
+}
+.details2 {
+	top: 124px;
+	right: -205px;
+}
+.details3 {
+	top: 124px;
+	right: 0;
+}
+.clear {
+	clear: both;
+	height: 1px;
+}
+	</style>
+	<script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+	<div class="container">
+	<div class="tooltip-box">
+		<div class="show-details-button">+</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div>
+	<div class="tooltip-box">
+		<div class="show-details-button">+</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div>
+	<div class="tooltip-box">
+		<div class="show-details-button">+</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div>
+	<div class="tooltip-box">
+		<div class="show-details-button">+</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">O</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">O</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">O</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">O</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div><div class="tooltip-box">
+		<div class="show-details-button">X</div>
+		<div class="inner-text">
+			<p>some text about beautiful life</p>
+		</div>
+		<div class="details details1">details</div>
+		<div class="details details2">details</div>
+		<div class="details details3">details</div>
+	</div>
+	<div class="clear"></div>
+	</div>
+	
+	<script>
+	function BannerWall() {
+		this.banners = $('.tooltip-box');
+		this.init();
+	}
+
+	BannerWall.prototype.settings = {
+		x_positions : [-184, -184, 8],
+		y_positions : [20, 125, 125]
+	};
+
+	BannerWall.prototype.init = function() {
+		this.eventsListener();
+	};
+
+	BannerWall.prototype.eventsListener = function() {
+		var self = this;
+		var showDetailButton;
+		var button;
+		var detailsBox;
+
+		this.banners.each(function(i, elem) {		
+			showDetailButton = $(elem).find('.show-details-button');
+			showDetailButton.bind('click', function(e) {
+			button = $(e.target);
+			detailsBox = button.parent().find('.details');
+		
+				if(!button.hasClass('active')) {	
+					self.hideDetails();
+					button.addClass('active');
+					detailsBox.each(function(i, elem){
+						self.showDetails(elem);//$(elem).toggle();	
+					})
+				} else {
+					self.hideDetails();
+					button.removeClass('active');
+				}
+				
+			})
+		})
+	};
+
+	BannerWall.prototype.showDetails = function(elem) {
+		var elem = $(elem);
+		elem.addClass('active-details');
+		elem.animate({
+			opacity: 'toggle'
+		},500);
+	};
+
+	BannerWall.prototype.hideDetails = function() {
+		var activeDetailsBoxes = this.banners.find('.active-details');
+		var activeButtons = $('.show-details-button.active');
+
+		activeButtons.removeClass('active');
+		activeDetailsBoxes.animate({
+			opacity: 'toggle'
+		},500);
+		activeDetailsBoxes.removeClass('active-details');
+	};
+
+	var wall = new BannerWall();
+	</script>
+</body>
+</html>

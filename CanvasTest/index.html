@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <style type="text/css">
+      #mygame {
+        background: #d8d8d8;
+      }
+    </style>
+  </head>
+  <body>
+    <div><span>Canvas test, draw/redraw, work with sprite animation. Character basic movement and simple collision detect. Press Arrows to move.</span></div>
+    <div><span>Ineresting perfomance test. When we test collisions, we get each element and checking his position. We use "for" cycle.</span></div>
+    <hr/>
+    <div><span>Elements on stage - <span class="cur-elems"></span></span></div>
+    <div><span>How many elements do you want to see on stage?</span>
+        <input type="text" class="elems">
+        <button class="submit">submit</button>
+    </div>
+    <canvas id="mygame" width="600" height="400">
+    </canvas>
+    <script>
+        (function(){
+            document.querySelector('.cur-elems').innerHTML = +localStorage.howManyElements || 5;
+            var button = document.querySelector('.submit');
+            button.addEventListener('click', function() {
+                if(!!+document.querySelector('.elems').value) {
+                    localStorage.howManyElements = document.querySelector('.elems').value;
+                    location.reload();
+                }
+            })
+        }())
+    </script>
+  </body>
+</html>

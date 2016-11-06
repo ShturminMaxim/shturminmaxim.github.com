@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <style>
+  .img-res-wrapper {
+  	position: relative;
+  	margin: 100px 100px;
+  	min-width: 3px;
+  	min-height: 3px;
+  }
+  .h-res {
+  	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	height: 5px;
+  	background: #E0E0E0;
+  	cursor: n-resize;
+
+  }
+  .v-res {
+  	position: absolute;
+  	right: 0;
+  	top:0;
+  	width: 5px;
+  	height: 100%;
+  	background: #E0E0E0;
+  	cursor :e-resize;
+  }
+  .h-v-res {
+  	position: absolute;
+  	right: 0;
+  	bottom:0;
+  	width: 16px;
+  	height: 16px;
+  	background: url(handle-se.png) no-repeat;
+  	cursor: se-resize;
+  }
+  </style>
+</head>
+<body>
+
+<img style="width:500px;height:282px" id="heroes" src="heroes.jpg">
+
+<div id="info"></div>
+
+<script>
+function Resizeable(options) {
+	this.elem = options.elem;
+	this.picture_size = {
+		pic_width: this.elem.width(),
+		pic_height: this.elem.height(),
+		min_pic_width: 30,
+		min_pic_height: 30
+	}
+	this.init();
+}
+Resizeable.prototype.init = function() {
+	var wrapper = '<div class="img-res-wrapper"></div>';
+	var horizontal_resize_block = '<div class="h-res"></div>';
+	var vertical_resize_block = '<div class="v-res"></div>';
+	var horizontal_and_verical_resize_block = '<div class="h-v-res"></div>';
+	var infoblock = $('#info');
+	$('body').append(wrapper);
+	this.container = $('.img-res-wrapper');
+	this.container.append(this.elem, horizontal_resize_block, vertical_resize_block, horizontal_and_verical_resize_block, infoblock);
+	this.container.css({
+		width: (this.picture_size.pic_width + 5),
+		height: (this.picture_size.pic_height + 5)
+	});
+	this.click_delegate();
+}
+Resizeable.prototype.click_delegate = function() {
+	var self = this;
+	this.h_resize_animation = false;
+	this.v_resize_animation = false;
+
+	$(window).delegate($(document), 'mousedown', function(event) {
+		var target = $(event.target);
+		var y = event.clientY;
+		var x = event.clientX;
+
+		event.preventDefault();
+
+		if(target.hasClass('h-res')) {
+			self.h_resize_animation = true;
+			self.resize(x, y);
+		}
+		if(target.hasClass('v-res')) {
+			self.v_resize_animation = true;
+			self.resize(x, y);
+		}
+		if(target.hasClass('h-v-res')) {
+			self.h_resize_animation = true;
+			self.v_resize_animation = true;
+			self.resize(x, y);
+		}
+	});
+
+	$(window).delegate($('body'), 'mouseup', function(event) {
+		console.log("mup");
+		self.h_resize_animation = false;
+		self.v_resize_animation = false;
+		$(window).unbind('mousemove');
+		$(self).triggerHandler({
+			type: "resize",
+			newWidth: self.elem.height(),
+			newHeight: self.elem.width()
+		});
+		self.picture_size.pic_height = self.elem.height();
+		self.picture_size.pic_width = self.elem.width();
+	});
+}
+
+
+Resizeable.prototype.resize = function(x, y) {
+	var self = this;
+	var c_height = self.container.height();
+	var c_width = self.container.width();
+
+	$(window).mousemove(function(event) {
+		var mouse_coord_y = (event.pageY - y);
+		var mouse_coord_x = (event.pageX - x);
+		console.log(mouse_coord_x);
+		if(self.h_resize_animation) {
+			if(self.elem.height() >= self.picture_size.min_pic_height) {
+				self.elem.height(self.picture_size.pic_height + mouse_coord_y);
+				self.container.height(c_height + mouse_coord_y);
+			} else {
+				$(window).unbind('mousemove');
+				self.elem.height(self.picture_size.min_pic_height);
+				self.container.height(self.elem.height());
+			}
+		}
+		if(self.v_resize_animation) {
+			if(self.elem.width() >= self.picture_size.min_pic_width) {
+				self.elem.width(self.picture_size.pic_width + mouse_coord_x);
+				self.container.width(c_width + mouse_coord_x);
+			} else {
+				$(window).unbind('mousemove');
+				self.elem.width(self.picture_size.min_pic_width);
+				self.container.width(self.elem.width());
+			}
+		}
+	});
+}
+
+var resizeMe = new Resizeable({
+	elem: $('#heroes')
+});
+
+$(resizeMe).on("resize", function(e) {
+	// вывести результат
+	console.log("resize");
+	$('#info').html("ширина:" + e.newWidth + ", высота:" + e.newHeight);
+});
+</script>
+
+</body>
+</html>

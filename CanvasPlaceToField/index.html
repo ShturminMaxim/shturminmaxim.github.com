@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas place to grid test</title>
+	<script src="easeljs-0.7.1.min.js"></script>
+	<script src="jquery-1.10.2.js"></script>
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			background: #000;
+			color: #FFF;
+		}
+		.title {
+			text-align: center;
+			font-size: 18px;
+			margin: 10px 0;
+		}
+		#main {
+			display: block;
+			margin: 0 auto;
+			background: url("img/spc.jpg") repeat;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div class="title"><span>Working with canvas. grid.changeMode('look') , grid.changeCell(1,0,2)</span></div>-->
+	<canvas id="main">Base</canvas>
+	<!-- <audio src="music/Nebulous.mp3" autoplay></audio> -->	
+	<script src="main.js"></script>
+	<script>
+		document.getElementById('main').oncontextmenu = function() { return false; }
+	</script>
+</body>
+</html>

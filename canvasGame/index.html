@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <script data-main="./js/main" src="./js/lib/require.js"></script>
+    <style type="text/css">
+      #mygame {
+        background: url("./img/grass.png") repeat;
+      }
+      .map {
+          display: block;
+          width: 200;
+          height: 300;
+      }
+      .game {
+          position: relative;
+          width: 608px;
+      }
+      .interface {
+          position: absolute;
+          left: 0;
+          bottom: 5px;
+          width: 245px;
+          height: 40px;
+          background-image: url('img/items.png');
+          background-position: -389px 0px;
+          
+      }
+        .inventory-items {
+            margin: 5px 0 0 18px;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+        .inventory-item {
+            position: relative;
+            font-size: 10px;
+            height: 30px;
+            width: 28px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .inventory-item span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #fff;
+            display: inline-block;
+        }
+    </style>
+  </head>
+  <body>
+    <div><span>Learning canvas possibilities and game mechanics. <a href="/canvasGame/devLog.html">devlog</a></span> 2014.</div>
+    <div><span>Labyrinth game prototype. Press Arrows to move.</span></div>
+    <div><span>80 Rooms. Map, Chests with keys, closed doors.</span></div>
+    <div><span>Ingame designs are from internet, used as example.</span></div>
+    <hr/>
+    <div class="game">
+        <canvas id="mygame" width="608" height="416"></canvas>
+        <div class="interface"><ul class="inventory-items"><li class="inventory-item map"></li></ul></div>
+    </div>
+  </body>
+</html>
